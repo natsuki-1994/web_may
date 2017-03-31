@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/*##############################*/
+/*html*/
+/*##############################*/
+
+html {
+    font-size: 62.5%;
+}
+
+/*##############################*/
+/*common*/
+/*##############################*/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.hide {
+    display: none;
+}
+.show {
+    display: block;
+}
