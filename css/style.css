@@ -8,6 +8,17 @@ html {
     font-size: 62.5%;
 }
 
+body{
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+    line-height: 1.6;
+    min-width: 1000px;
+}
+body p{
+    margin-top: 20px;
+}
+
 /*##############################*/
 /*common*/
 /*##############################*/
@@ -16,6 +27,7 @@ html {
     box-sizing: border-box;
     text-decoration: none;
 }
+
 .clearfix::after {
     content: '';
     display: block;
@@ -27,3 +39,213 @@ html {
 .show {
     display: block;
 }
+
+/*##############################*/
+/*header*/
+/*##############################*/
+
+.header{
+    height: 75px;
+    width: 100%;
+}
+
+.header_img{
+    float: left;
+    height:50px;
+    margin:13px 5px 0 90px;
+}
+.top-text{
+    text-align: left;
+    letter-spacing: 1px;
+    float: left;
+    margin-top: 10px;
+}
+.up{
+    margin-top: 3px;
+}
+.down{
+    font-size: 2.4rem;
+    line-height: 1;
+    margin: 0;
+}
+
+.global-nav{
+    text-align: center;
+    display: -webkit-inline-flex; /* Safari */
+    display: inline-flex;
+    float: right;
+    margin-top: 23px;
+    margin-right: 70px;
+}
+.global-nav .nav-item{
+    letter-spacing: 1px;
+    line-height: 30px;
+    display: inline-block;
+    height: 30px;
+    width: 100px;
+}
+
+/*##############################*/
+/*top*/
+/*##############################*/
+
+.top{
+    background-image: url("../images/top.jpg");
+    background-size: cover;
+    color: white;
+    display: block;
+    height: 650px;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 170px;
+    position: relative;
+    z-index: 0;
+}
+.top:before{
+    content: '';
+    background: inherit;/*.topで設定した背景画像を継承する*/
+    -webkit-filter: blur(5px);
+    /*-moz-filter: blur(5px);*/
+    /*-o-filter: blur(5px);*/
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    position: absolute; /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;/*重なり順序を一番下にしておく*/
+}
+
+.top-img{
+    display: block;
+    height: 92px;
+    margin-left: 47%;
+}
+.eeic{
+    letter-spacing: 13px;
+    font-size: 3.2rem;
+    margin-top: 5px;
+}
+.top1{
+    font-size: 2.5rem;
+}
+h1{
+    font-size: 8rem;
+    letter-spacing: 12px;
+    line-height: 1.4;
+}
+
+/*##############################*/
+/*about contents footer -> factor*/
+/*##############################*/
+
+.factor {
+    font-size: 1.6rem;
+    border-bottom: 1px solid gray;
+    padding: 50px 50px;
+}
+
+.heading{
+    font-size: 3rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin: 25px 0 15px;
+    padding-bottom: 8px;
+    position: relative;
+}
+.heading::before,
+.heading::after{
+    content: '';
+    border-bottom: 3px solid #333;
+    right: 0;
+    bottom:0;
+    left: 0;
+    position: absolute;
+}
+
+
+/*##############################*/
+/*about*/
+/*##############################*/
+
+.about-text{
+    margin-bottom: 20px;
+}
+
+/*##############################*/
+/*contents*/
+/*##############################*/
+
+
+.contents-wrapper{
+    display: -webkit-flex;
+    /*display: -moz-flex;*/
+    /*display: -ms-flex;*/
+    /*display: -o-flex;*/
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 30px;
+
+    -webkit-flex-direction: row; /* Safari */
+    flex-direction:         row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+.contents-box{
+    width: 27%;
+}
+.contents-img{
+    width: 75%;
+}
+
+.contents-text{
+    width: 100%;
+}
+h3{
+    font-size: 2.2rem;
+    letter-spacing: 3px;
+    margin-top: 30px;
+}
+
+
+/*##############################*/
+/*access*/
+/*##############################*/
+
+.access-box{
+    display: -webkit-flex;
+    /*display: -moz-flex;*/
+    /*display: -ms-flex;*/
+    /*display: -o-flex;*/
+    display: flex;
+    width: 850px;
+    margin: 30px auto;
+
+    -webkit-flex-direction: row; /* Safari */
+    flex-direction:         row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+.access-text{
+    text-align: left;
+    height: 90%;
+    margin-top: 0;
+    margin-right: 20px;
+}
+
+/*##############################*/
+/*footer*/
+/*##############################*/
+
+.footer{
+    height: 60px;
+}
+.copyright{
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 60px;
+    margin-top: 0;
+}
+
