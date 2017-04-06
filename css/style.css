@@ -73,7 +73,6 @@ body p{
 
 .global-nav{
     text-align: center;
-    color: black;
     display: -webkit-inline-flex; /* Safari */
     display: inline-flex;
     float: right;
@@ -86,6 +85,9 @@ body p{
     display: inline-block;
     height: 30px;
     width: 100px;
+}
+a{
+    color: black;
 }
 
 /*##############################*/
