@@ -73,6 +73,7 @@ body p{
 
 .global-nav{
     text-align: center;
+    color: black;
     display: -webkit-inline-flex; /* Safari */
     display: inline-flex;
     float: right;
@@ -122,8 +123,13 @@ body p{
 .top-img{
     display: block;
     height: 92px;
-    margin-left: 47%;
+    /*margin-left: 47%;*/
+    margin:0 auto;
 }
+.top-text{
+    font-weight: bold;
+}
+
 .eeic{
     letter-spacing: 13px;
     font-size: 3.2rem;
