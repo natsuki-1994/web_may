@@ -54,7 +54,7 @@ body p{
 .header_img{
     float: left;
     height:50px;
-    margin:13px 5px 0 90px;
+    margin:13px 10px 0 90px;
 }
 .top-text{
     text-align: left;
@@ -135,7 +135,7 @@ body p{
 h1{
     font-size: 8rem;
     letter-spacing: 12px;
-    line-height: 1.4;
+    line-height: 1.2;
 }
 
 /*##############################*/
