@@ -57,7 +57,7 @@ body a{
     position: fixed;
     background: white;
 
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid gray;
     z-index: 1;
     padding: 13px 70px 5px 90px;
     align-items: center;
@@ -66,8 +66,9 @@ body a{
 .header_img{
     float: left;
     height:50px;
-    margin-right: 10px;
+    padding-right: 10px;
 }
+
 .top-text{
     letter-spacing: 1px;
     float: left;
@@ -127,9 +128,8 @@ body a{
 /*##############################*/
 
 .top{
-    background-image: url("../images/top.jpg");
+    background: url("../images/top.jpg") center;
     background-size: cover;
-    background-position: center;
     color: white;
     height: 100%;
     overflow: hidden;
@@ -314,6 +314,13 @@ h3{
         padding-bottom: 8px;
         position: relative;
     }
+    .factor {
+        font-size: 1.6rem;
+        border-bottom: 1px solid gray;
+        padding: 105px 10px 30px 10px;
+        margin-top: -75px;
+    }
+
 
     /*##############################*/
     /*header*/
@@ -337,6 +344,12 @@ h3{
         line-height: 30px;
     }
 
+    .global-nav .nav-item a:hover{
+        background-color: white;
+        color: black;
+        /*border: 1px solid aqua;*/
+        /*color: aqua;*/
+    }
 
     /*##############################*/
     /*top*/
