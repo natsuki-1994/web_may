@@ -8,6 +8,7 @@
 
 html {
     font-size: 62.5%;
+    height: 100%;
 }
 
 body{
@@ -15,10 +16,14 @@ body{
     font-size: 1.4rem;
     font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
     line-height: 1.6;
-    min-width: 1000px;
+    height: 100%;
 }
 body p{
     margin-top: 20px;
+}
+
+body a{
+    color: black;
 }
 
 /*##############################*/
@@ -49,26 +54,43 @@ body p{
 .header{
     height: 75px;
     width: 100%;
+    position: fixed;
+    background: white;
+
+    border-bottom: 1px solid black;
+    z-index: 1;
+    padding: 13px 70px 5px 90px;
+    align-items: center;
 }
 
 .header_img{
     float: left;
     height:50px;
-    margin:13px 10px 0 90px;
+    margin-right: 10px;
 }
 .top-text{
-    text-align: left;
     letter-spacing: 1px;
     float: left;
-    margin-top: 10px;
+
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: flex-start; /* 縦方向中央揃え（Safari用） */
+    align-items: flex-start;
+    flex-direction: column;
 }
-.up{
-    margin-top: 3px;
+
+.top-text p{
+    margin-top: 0;
 }
+
 .down{
     font-size: 2.4rem;
     line-height: 1;
-    margin: 0;
+}
+
+.global-nav-list{
+    display: flex;
+    flex-direction: row;
 }
 
 .global-nav{
@@ -76,18 +98,28 @@ body p{
     display: -webkit-inline-flex; /* Safari */
     display: inline-flex;
     float: right;
-    margin-top: 23px;
-    margin-right: 70px;
 }
+
 .global-nav .nav-item{
-    letter-spacing: 1px;
-    line-height: 30px;
-    display: inline-block;
-    height: 30px;
-    width: 100px;
+    padding: 0 10px;
 }
-a{
-    color: black;
+
+.global-nav .nav-item a{
+    letter-spacing: 1px;
+    line-height: 55px;
+    height: 55px;
+    display: inline-block;
+    padding: 0 10px;
+    transition: 0.15s;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.global-nav .nav-item a:hover{
+    background-color: black;
+    color: white;
+    /*border: 1px solid aqua;*/
+    /*color: aqua;*/
 }
 
 /*##############################*/
@@ -97,21 +129,25 @@ a{
 .top{
     background-image: url("../images/top.jpg");
     background-size: cover;
+    background-position: center;
     color: white;
-    display: block;
-    height: 650px;
-    width: 100%;
+    height: 100%;
     overflow: hidden;
-    padding-top: 170px;
     position: relative;
     z-index: 0;
+
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+    align-items: center; /* 縦方向中央揃え */
+    -webkit-justify-content: center; /* 横方向中央揃え（Safari用） */
+    justify-content: center; /* 横方向中央揃え */
+    flex-direction: column;
 }
 .top:before{
     content: '';
     background: inherit;/*.topで設定した背景画像を継承する*/
     -webkit-filter: blur(5px);
-    /*-moz-filter: blur(5px);*/
-    /*-o-filter: blur(5px);*/
     -ms-filter: blur(5px);
     filter: blur(5px);
     position: absolute; /*ブラー効果で画像の端がボヤけた分だけ位置を調整*/
@@ -123,10 +159,7 @@ a{
 }
 
 .top-img{
-    display: block;
     height: 92px;
-    /*margin-left: 47%;*/
-    margin:0 auto;
 }
 .top-text{
     font-weight: bold;
@@ -153,7 +186,8 @@ h1{
 .factor {
     font-size: 1.6rem;
     border-bottom: 1px solid gray;
-    padding: 50px 50px;
+    padding: 105px 50px 50px 50px;
+    margin-top: -75px;
 }
 
 .heading{
@@ -190,9 +224,6 @@ h1{
 
 .contents-wrapper{
     display: -webkit-flex;
-    /*display: -moz-flex;*/
-    /*display: -ms-flex;*/
-    /*display: -o-flex;*/
     display: flex;
     width: 100%;
     margin-top: 40px;
@@ -226,23 +257,17 @@ h3{
 
 .access-box{
     display: -webkit-flex;
-    /*display: -moz-flex;*/
-    /*display: -ms-flex;*/
-    /*display: -o-flex;*/
     display: flex;
-    width: 850px;
-    margin: 30px auto;
+    width: 100%;
 
-    -webkit-flex-direction: row; /* Safari */
-    flex-direction:         row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: center;
+
 }
 .access-text{
     text-align: left;
-    height: 90%;
-    margin-top: 0;
-    margin-right: 20px;
+    margin: 0 20px;
+    padding-top: 20px;
 }
 
 /*##############################*/
@@ -259,3 +284,140 @@ h3{
     margin-top: 0;
 }
 
+
+
+
+
+
+
+/*##############################*/
+/*For SmartPhone*/
+/*##############################*/
+
+@media (max-width: 768px) {
+
+    body{
+        text-align: center;
+        font-size: 1.4rem;
+        font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+        line-height: 1.6;
+        min-height: 565px;
+        height: 100%;
+    }
+
+
+    .heading{
+        font-size: 3rem;
+        letter-spacing: 2px;
+        display: inline-block;
+        margin: 15px 0 15px;
+        padding-bottom: 8px;
+        position: relative;
+    }
+
+    /*##############################*/
+    /*header*/
+    /*##############################*/
+    .header{
+        height: 90px;
+        padding: 13px 10px 5px 10px;
+    }
+    .header_img{
+        height: 40px;
+    }
+    .top-text{
+        float: none;
+    }
+
+    .down{
+        font-size: 2rem;
+    }
+    .global-nav .nav-item a{
+        height: 30px;
+        line-height: 30px;
+    }
+
+
+    /*##############################*/
+    /*top*/
+    /*##############################*/
+
+    .top{
+        padding: 0 10px;
+    }
+
+    .top1{
+        font-size: 2rem;
+    }
+    h1{
+        font-size: 5rem;
+    }
+
+    /*##############################*/
+    /*contents*/
+    /*##############################*/
+
+
+    .contents-wrapper{
+        display: -webkit-flex;
+        display: flex;
+        width: 100%;
+        margin-top: 40px;
+        margin-bottom: 30px;
+
+        -webkit-flex-direction: column; /* Safari */
+        flex-direction:         column;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+    .contents-box{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .contents-img{
+        width: 75%;
+    }
+
+    .contents-text{
+        width: 100%;
+    }
+    h3{
+        font-size: 2.2rem;
+        letter-spacing: 3px;
+        margin-top: 30px;
+    }
+
+    /*##############################*/
+    /*access*/
+    /*##############################*/
+
+    .access-box{
+        display: -webkit-flex;
+        display: flex;
+        width: 100%;
+
+        flex-direction: column;
+        justify-content: center;
+
+    }
+    .map{
+        width: 100%;
+    }
+    .access-text{
+        text-align: center;
+    }
+
+    /*##############################*/
+    /*footer*/
+    /*##############################*/
+
+    .footer{
+        height: 60px;
+    }
+    .copyright{
+        text-align: center;
+        letter-spacing: 1px;
+        line-height: 2;
+        padding: 5px 10px;
+    }
+}

@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>近未来体験2017</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <title>近未来体験2017</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="text/javascript" src="../jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      $('a[href^="#"]').click(function(){
+        var speed = 300;
+        var href= $(this).attr("href");
+        var target = $(href == "#" || href == "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body").animate({scrollTop:position}, speed, "swing");
+        return false;
+      });
+    });
+  </script>
+
+
 </head>
 <body>
   <header class="header">
+    <a href="#top">
     <img class="header_img" src="../images/black_bulb.png" alt="eeic">
     <div class="top-text">
       <p class="up">EEIC 五月祭展示</p>
       <p class="down">近未来体験2017</p>
     </div>
+    </a>
     <nav class="global-nav">
-      <ul>
+      <ul class="global-nav-list">
         <li class="nav-item"><a href="#about">ABOUT</a></li>
         <li class="nav-item"><a href="#contents">CONTENTS</a></li>
         <li class="nav-item"><a href="#access">ACCESS</a></li>
       </ul>
     </nav>
   </header>
-  <section class="top">
+  <section class="top" id="top">
     <img class="top-img" src="../images/white_bulb.png" alt="電球">
     <h2 class="eeic">EEIC</h2>
     <p class="top1">東京大学工学部電子情報・電気電子工学科 五月祭展示</p>
@@ -83,7 +102,8 @@
     <h2 class="heading">ACCESS</h2>
     <div class="access-box">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.486358958482!2d139.75965870080654!3d35.71425548567039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c31ccfe03e1%3A0x3d9424d7feac6c9f!2z44CSMTEzLTAwMzMg5p2x5Lqs6YO95paH5Lqs5Yy65pys6YO377yX5LiB55uu77yTIOadseS6rOWkp-WtpuacrOmDt-OCreODo-ODs-ODkeOCueW3peWtpumDqO-8kuWPt-mkqA!5e0!3m2!1sja!2sjp!4v1491390789035"
-              width="550" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+              width="550" height="400" frameborder="0" style="border:0" allowfullscreen
+      class="map"></iframe>
       <p class="access-text">
         <b>会場</b><br>
         東京大学本郷キャンパス<br>
