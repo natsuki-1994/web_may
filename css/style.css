@@ -112,16 +112,24 @@ body a{
     height: 55px;
     display: inline-block;
     padding: 0 10px;
-    transition: 0.15s;
-    border-radius: 50%;
-    border: 1px solid white;
+    position: relative;
+    transition: .3s;
 }
 
-.global-nav .nav-item a:hover{
+.global-nav .nav-item a::after {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    content: '';
+    width: 0;
+    height: 1px;
     background-color: black;
-    color: white;
-    /*border: 1px solid aqua;*/
-    /*color: aqua;*/
+    transition: .3s;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.global-nav .nav-item a:hover::after {
+    width: 100%;
 }
 
 /*##############################*/
