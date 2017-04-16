@@ -62,8 +62,9 @@ body a{
     position: fixed;
     background: white;
 
-    border-bottom: 1px solid gray;
-    z-index: 999;
+
+    /*border-bottom: 1px solid gray;*/
+    z-index: 1;
     padding: 13px 70px 5px 90px;
     align-items: center;
     box-shadow: 0 0 15px 0 #4262a0;
