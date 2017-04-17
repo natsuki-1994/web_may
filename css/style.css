@@ -260,9 +260,7 @@ h1{
 }
 
 .contents-text{
-    /*width: 100%;*/
     text-align: justify;
-    /*text-justify: distribute;*/
 }
 h3{
     font-size: 2.2rem;
@@ -389,7 +387,7 @@ h3{
         left:0;
         top: 75px;
 
-        box-shadow: 0 15px 15px -15px #4262a0;
+        box-shadow: 0 5px 5px rgba(66, 98, 160,0.4);
     }
 
     .global-nav-list{
