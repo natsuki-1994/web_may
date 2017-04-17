@@ -390,12 +390,13 @@ h3{
     .global-nav-list{
         float: right;
         display: none;
-        height: 200px;
+        /*height: 200px;*/
         width: 100%;
-
 
         flex-direction: column;
         align-items: center;
+
+        box-shadow: 0 15px 15px -15px #4262a0;
     }
 
     .nav-item{
@@ -440,6 +441,14 @@ h3{
     }
     .top-img {
         margin-top: 20px;
+    }
+
+    /*##############################*/
+    /*about*/
+    /*##############################*/
+
+    .about-text　mobile-text{
+        text-align: justify;
     }
 
     /*##############################*/
