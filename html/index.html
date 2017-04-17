@@ -9,6 +9,8 @@
 
   <script type="text/javascript" src="../jquery/jquery-3.2.1.min.js"></script>
   <script type="text/javascript">
+    var windowWidth = $(window).width();
+
     $(function(){
       $('a[href^="#"]').click(function(){
         var speed = 300;
@@ -27,17 +29,20 @@
       })
     });
 
-    $(function(){
-      $('a.nav').click(function(){
-        $('ul.global-nav-list').slideUp(100);
-      });
-    });
+    if(windowWidth < 768){
+      console.log('Oh...');
+      $(function(){
+        $('a.nav').click(function(){
+            $('ul.global-nav-list').slideUp(100);
+          });
+        });
 
-    $(function(){
-      $('a.header-link').click(function(){
-        $('ul.global-nav-list').slideUp(100);
+      $(function(){
+        $('a.header-link').click(function(){
+          $('ul.global-nav-list').slideUp(100);
+        });
       });
-    });
+    }
 
   </script>
 
