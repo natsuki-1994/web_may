@@ -62,8 +62,6 @@ body a{
     position: fixed;
     background: white;
 
-
-    /*border-bottom: 1px solid gray;*/
     z-index: 1;
     padding: 13px 70px 5px 90px;
     align-items: center;
@@ -235,6 +233,31 @@ h1{
     margin-bottom: 20px;
 }
 
+.middle{
+    display: none;
+}
+.short{
+    display: none;
+}
+@media(max-width: 1100px){
+    .middle{
+        display: inline;
+    }
+
+    .mobile-hide{
+        display: none;
+    }
+}
+
+@media(max-width: 890px){
+    .short{
+        display: inline;
+    }
+    .short-hide{
+        display: none;
+    }
+}
+
 /*##############################*/
 /*contents*/
 /*##############################*/
@@ -304,10 +327,6 @@ h3{
 
 
 
-
-
-
-
 /*##############################*/
 /*For SmartPhone*/
 /*##############################*/
@@ -342,6 +361,15 @@ h3{
     .mobile{
         display: inline;
         text-align: center;
+    }
+    .mobile-hide{
+        display: none;
+    }
+    .short{
+        display: none;
+    }
+    .middle{
+        display: none;
     }
 
     /*##############################*/
