@@ -62,8 +62,6 @@ body a{
     position: fixed;
     background: white;
 
-
-    /*border-bottom: 1px solid gray;*/
     z-index: 1;
     padding: 13px 70px 5px 90px;
     align-items: center;
@@ -177,7 +175,6 @@ body a{
 
 .top-img{
     height: 92px;
-    /*width: 82px;*/
 }
 .top-text{
     font-weight: bold;
