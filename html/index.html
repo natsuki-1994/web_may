@@ -1,12 +1,153 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>近未来体験2017</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <title>近未来体験2017</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <script type="text/javascript" src="../jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    var windowWidth = $(window).width();
+
+    $(function(){
+      $('a[href^="#"]').click(function(){
+        var speed = 300;
+        var href= $(this).attr("href");
+        var target = $(href == "#" || href == "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body").animate({scrollTop:position}, speed, "swing");
+        return false;
+      });
+    });
+
+
+    $(function(){
+      $('div.menu-trigger').click(function(){
+        $('ul.global-nav-list').slideToggle(300);
+      })
+    });
+
+    if(windowWidth < 768){
+      console.log('Oh...');
+      $(function(){
+        $('a.nav').click(function(){
+            $('ul.global-nav-list').slideUp(100);
+          });
+        });
+
+      $(function(){
+        $('a.header-link').click(function(){
+          $('ul.global-nav-list').slideUp(100);
+        });
+      });
+
+      $(function(){
+        $('nav.global-nav').css('width',windowWidth);
+      });
+    }
+
+  </script>
+
+
 </head>
 <body>
-  
+  <header class="header">
+    <a href="#top" class="header-link">
+    <img class="header_img" src="../images/black_bulb.png" alt="eeic">
+    <div class="top-text">
+      <p class="up">EEIC 五月祭展示</p>
+      <p class="down">近未来体験2017</p>
+    </div>
+    </a>
+
+    <!--menu-triggerをglobal-navから外す作戦あり-->
+    <div class="menu-trigger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="global-nav">
+      <ul class="global-nav-list">
+        <li class="nav-item"><a href="#about" class="nav">ABOUT</a></li>
+        <li class="nav-item"><a href="#contents" class="nav">CONTENTS</a></li>
+        <li class="nav-item"><a href="#access" class="nav">ACCESS</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="top" id="top">
+    <img class="top-img" src="../images/white_bulb.png" alt="電球">
+    <h2 class="eeic">EEIC</h2>
+    <p class="top1">東京大学工学部<br class="mobile">電子情報・電気電子工学科 <br class="mobile">五月祭展示</p>
+    <h1>近未来体験<br class="mobile">2017</h1>
+  </section>
+  <section class="factor" id="about">
+    <h2 class="heading">ABOUT</h2>
+    <p class="about-text　mobile-text">「近未来体験2017」は東京大学電気電子工学科・電子情報工学科(EEIC)の学生による五月祭の展示企画です。<br>
+    近未来を体験することをテーマとし、最先端の研究内容や講義で製作した学生製作物の展示、電子工作教室やプログラミング教室といった
+      <br>ワークショップなど、EEICの魅力がたくさん詰まった企画を用意しています。<br>
+    子供から大人まで楽しめる内容となっておりますので、自分の未来、技術の未来、社会の未来、それぞれの未来を見に来てください！</p>
+    <p class="about-text">
+      <b>日時</b><br>
+      2017年5月20日(土)・21日(日) <br class="mobile">9:00-18:00
+    </p>
+    <p class="about-text">
+      <b>会場</b><br>
+      東京大学本郷キャンパス<br>
+      工学部2・3・13号館
+    </p>
+  </section>
+  <section class="factor" id="contents">
+    <h2 class="heading">CONTENTS</h2>
+    <div class="contents-wrapper">
+      <div class="contents-box">
+        <img class="contents-img" src="../images/exhibition.png" alt="展示">
+        <h3>展示</h3>
+        <p class="contents-text">
+          学生制作物展示ではEEICの学生が授業や実験で作成した、子どもでも簡単にマイコンで遊べるツールや画像処理・CGのライブラリOpenCV/GLを使った作品を展示します。
+          研究室展示では画像処理や分散コンピューティングなど情報系の技術や、美しいプラズマ現象や迫力満点の放電現象、未来の電気自動車など電気の最先端に触れることができます。
+        </p>
+      </div>
+      <div class="contents-box">
+        <img class="contents-img" src="../images/workshop.png" alt="ワークショップ">
+        <h3>ワークショップ</h3>
+        <p class="contents-text">
+          電子工作教室、プログラミング教室、銀ナノインクワークショップの三つのワークショップを設けています。理系の中でも工学部、とりわけEEICでは「モノを創る」ことに重きを置いています。
+          それぞれのワークショップで物作りという学校の勉強とは趣の異なる体験を子どもも大人の方もお楽しみください。
+        </p>
+      </div>
+      <div class="contents-box">
+        <img class="contents-img" src="../images/lecture.png" alt="講演">
+        <h3>講演</h3>
+        <p class="contents-text">
+          講演会では、現在Googleで働く学科OBの方に、この学科で学んだことが現在行っているChromeブラウザの開発にどう繋がっているのか、情報科学の面白さを交えて講演をしていただきます。
+          卒論発表会では、平成28年度の卒業研究で優秀表彰された学生による発表会を行います。
+          電気系学科の最先端を行く開発・卒業研究を覗いてみませんか？
+
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="factor" id="access">
+    <h2 class="heading">ACCESS</h2>
+    <div class="access-box">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.486358958482!2d139.75965870080654!3d35.71425548567039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188c31ccfe03e1%3A0x3d9424d7feac6c9f!2z44CSMTEzLTAwMzMg5p2x5Lqs6YO95paH5Lqs5Yy65pys6YO377yX5LiB55uu77yTIOadseS6rOWkp-WtpuacrOmDt-OCreODo-ODs-ODkeOCueW3peWtpumDqO-8kuWPt-mkqA!5e0!3m2!1sja!2sjp!4v1491390789035"
+              width="550" height="400" frameborder="0" style="border:0" allowfullscreen
+      class="map"></iframe>
+      <p class="access-text">
+        <b>会場</b><br>
+        東京大学本郷キャンパス<br>
+        工学部2・3・13号館
+        <br><br>
+        本郷三丁目駅から徒歩17分<br>
+        東大前駅から徒歩8分<br>
+        根津駅から徒歩7分
+      </p>
+    </div>
+  </section>
+  <footer class="footer">
+    <p class="copyright">Copyright ©️ EEIC 五月祭展示<br class="mobile">「近未来体験2017」All rights reserved.</p>
+  </footer>
 </body>
 </html>
