@@ -177,6 +177,7 @@ body a{
 
 .top-img{
     height: 92px;
+    /*width: 82px;*/
 }
 .top-text{
     font-weight: bold;
@@ -233,6 +234,31 @@ h1{
 
 .about-text{
     margin-bottom: 20px;
+}
+
+.middle{
+    display: none;
+}
+.short{
+    display: none;
+}
+@media(max-width: 1100px){
+    .middle{
+        display: inline;
+    }
+
+    .mobile-hide{
+        display: none;
+    }
+}
+
+@media(max-width: 890px){
+    .short{
+        display: inline;
+    }
+    .short-hide{
+        display: none;
+    }
 }
 
 /*##############################*/
@@ -304,10 +330,6 @@ h3{
 
 
 
-
-
-
-
 /*##############################*/
 /*For SmartPhone*/
 /*##############################*/
@@ -342,6 +364,15 @@ h3{
     .mobile{
         display: inline;
         text-align: center;
+    }
+    .mobile-hide{
+        display: none;
+    }
+    .short{
+        display: none;
+    }
+    .middle{
+        display: none;
     }
 
     /*##############################*/
