@@ -134,7 +134,7 @@ body a{
     }
 
     .global-nav .nav-item a:hover::after {
-        width: 100%;
+        width: 100vw;
     }
 }
 
@@ -462,7 +462,7 @@ h3{
         text-align: center;
         display: block;
         height: 60px;
-        width: 100%;
+        width: 100vw;
         border-bottom: 1px solid gray;
         background-color: rgba(255, 255, 255, 0.95);
     }
