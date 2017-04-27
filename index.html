@@ -11,7 +11,7 @@
   <script type="text/javascript">
     var windowWidth = $(window).width();
     var windowHeight = $(window).height();
-    document.createElement('section');
+
 
     $(function(){
       $('a[href^="#"]').click(function(){
@@ -24,37 +24,45 @@
       });
     });
 
-    $(function () {
-      if(windowWidth > 768){
-        $('section.top').css('height',windowHeight - 75 + 'px');
-      }else{
-        $('section.top').css('height',windowHeight -50 + 'px');
-      }
-    });
 
-    $(function(){
-      $('div.menu-trigger').click(function(){
-        $('ul.global-nav-list').slideToggle(300);
-      })
-    });
 
-    if(windowWidth < 768){
-      $(function(){
-        $('a.nav').click(function(){
+
+
+      if(windowWidth < 800){
+        $(function () {
+          $('section.top').css('height',windowHeight - 50 + 'px');
+          console.log("change");
+        });
+
+        $(function(){
+          $('div.menu-trigger').click(function(){
+            $('ul.global-nav-list').slideToggle(300);
+            console.log("slide");
+          })
+        });
+
+        $(function(){
+          $('a.nav').click(function(){
+              $('ul.global-nav-list').slideUp(100);
+            });
+          });
+
+        $(function(){
+          $('a.header-link').click(function(){
             $('ul.global-nav-list').slideUp(100);
           });
         });
 
-      $(function(){
-        $('a.header-link').click(function(){
-          $('ul.global-nav-list').slideUp(100);
+        $(function(){
+          $('nav.global-nav').css('width',windowWidth);
         });
-      });
+      }else {
+        $(function () {
+          $('section.top').css('height', windowHeight - 75 + 'px');
+        });
+      }
 
-      $(function(){
-        $('nav.global-nav').css('width',windowWidth);
-      });
-    }
+
 
   </script>
 
@@ -94,7 +102,7 @@
   <section class="factor" id="about">
     <h2 class="heading">ABOUT</h2>
     <p class="about-text　mobile-text">「近未来体験2017」は東京大学電気電子工学科・電子情報工学科(EEIC)の学生による<br class="short">五月祭の展示企画です。<br>
-    近未来を体験することをテーマとし、最先端の研究内容や講義で製作した学生製作物の展示、<br class="middle">電子工作教室やプログラミング教室といった
+    近未来を体験することをテーマとし、最先端の研究内容やVR（バーチャルリアリティ）企画、<br class="middle-hide">講義で制作した学生制作物の展示、<br class="middle">電子工作教室やプログラミング教室といった
       <br class="mobile-hide">ワークショップなど、<br class="middle">EEICの魅力がたくさん詰まった企画を用意しています。<br>
     子供から大人まで楽しめる内容となっておりますので、<br class="short">自分の未来、技術の未来、社会の未来、<br class="middle short-hide">それぞれの未来を見に来てください！</p>
     <p class="about-text">
@@ -158,26 +166,18 @@
   <section class="factor" id="links">
     <h2 class="heading">LINKS</h2>
     <div class="contents-wrapper">
-      <div class="contents-box">
+      <a href="" class="contents-box links no-link">
         <img class="link-img" src="./images/mech.jpg" alt="機械工学科・機械情報工学科学生展示">
-        <h3>機械工学科・機械情報工学科学生展示</h3>
-        <!--<p class="contents-text">-->
-          <!--学生制作物展示ではEEICの学生が授業や実験で作成した、子どもでも簡単にマイコンで遊べるツールや画像処理・CGのライブラリOpenCV/GLを使った作品を展示します。-->
-          <!--研究室展示では画像処理や分散コンピューティングなど情報系の技術や、美しいプラズマ現象や迫力満点の放電現象、未来の電気自動車など電気の最先端に触れることができます。-->
-        <!--</p>-->
-      </div>
-      <div class="contents-box">
-        <img class="contents-img" src="./images/workshop.png" alt="ワークショップ">
-        <h3>ワークショップ</h3>
-        <p class="contents-text">
-          電子工作教室、プログラミング教室、銀ナノインクワークショップの三つのワークショップを設けています。理系の中でも工学部、とりわけEEICでは「モノを創る」ことに重きを置いています。
-          それぞれのワークショップで物作りという学校の勉強とは趣の異なる体験を子どもも大人の方もお楽しみください。
-        </p>
-      </div>
+        <h4>工学部 <br class="mini-mobile">機械工学科・機械情報工学科<br>※開設中</h4>
+      </a>
+      <a href="https://ap-phys.net/" class="contents-box links">
+        <img class="link-img" src="./images/ap-phys.jpg" alt="ワークショップ">
+        <h4>工学部 計数工学科・物理工学科</h4>
+      </a>
     </div>
   </section>
   <footer class="footer">
-    <p class="copyright">Copyright ©️ EEIC 五月祭展示<br class="mobile">「近未来体験2017」All rights reserved.</p>
+    <p class="copyright">Copyright &copy; EEIC 五月祭展示<br class="mobile">「近未来体験2017」All rights reserved.</p>
   </footer>
 </body>
 </html>
