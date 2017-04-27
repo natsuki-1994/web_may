@@ -1,7 +1,5 @@
 @charset "UTF-8";
 
-/*所々要素中でコメントアウトしてるのはサイトには書いてあったけどWebstormがエラー吐いたやつです。*/
-
 /*##############################*/
 /*html*/
 /*##############################*/
@@ -15,14 +13,10 @@ body{
     font-size: 1.4rem;
     font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
     line-height: 1.6;
-    min-height: 565px;
+    min-height: 480px;
 }
 body p{
     margin-top: 20px;
-}
-
-body a{
-    color: black;
 }
 
 /*##############################*/
@@ -56,7 +50,7 @@ body a{
 
 .header{
     height: 75px;
-    width: 100%;
+    width: 100vw;
     position: fixed;
     background: white;
 
@@ -65,6 +59,9 @@ body a{
     align-items: center;
     box-shadow: 0 0 15px 0 #4262a0;
     /*border-bottom: 1px solid gray;*/
+}
+.header a{
+    color: black;
 }
 
 
@@ -99,27 +96,32 @@ body a{
     flex-direction: row;
 }
 
-.global-nav{
-    text-align: center;
-    display: -webkit-inline-flex; /* Safari */
-    display: inline-flex;
-    float: right;
-}
+@media(min-width: 800px){
 
-.global-nav .nav-item{
-    padding: 0 10px;
-}
+    .global-nav{
+        text-align: center;
+        display: -webkit-inline-flex; /* Safari */
+        display: inline-flex;
+        float: right;
 
-.global-nav .nav-item a{
-    letter-spacing: 1px;
-    line-height: 55px;
-    height: 55px;
-    display: inline-block;
-    padding: 0 10px;
-    position: relative;
-    transition: .3s;
+        width: 403px;
+    }
+
+    .global-nav .nav-item{
+        padding: 0 10px;
+    }
+
+    .global-nav .nav-item a{
+        letter-spacing: 1px;
+        line-height: 55px;
+        height: 55px;
+        display: inline-block;
+        padding: 0 10px;
+        position: relative;
+        transition: .3s;
+    }
 }
-@media (min-width: 768px) {
+@media (min-width: 800px) {
     .global-nav .nav-item a::after {
         position: absolute;
         bottom: 8px;
@@ -155,7 +157,6 @@ body a{
     background: url("../images/top.jpg") center;
     background-size: cover;
     color: white;
-    height: 100vh;
     overflow: hidden;
     position: relative;
     z-index: 0;
@@ -324,6 +325,34 @@ h3{
 }
 
 /*##############################*/
+/*links*/
+/*##############################*/
+
+.links{
+    width: 50%;
+    color: black;
+}
+
+h4{
+    font-size: 2rem;
+}
+
+.link-img{
+    height: 120px;
+    max-width: 100%;
+}
+
+.no-link{
+    pointer-events:none;
+    color: gray;
+}
+
+.mini-mobile{
+    display: none;
+}
+
+
+/*##############################*/
 /*footer*/
 /*##############################*/
 
@@ -343,7 +372,7 @@ h3{
 /*For SmartPhone*/
 /*##############################*/
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
 
     body{
         text-align: center;
@@ -383,13 +412,14 @@ h3{
     .middle{
         display: none;
     }
+    .middle-hide{
+        display: none;
+    }
 
     /*##############################*/
     /*header*/
     /*##############################*/
     .header{
-        /*height: 75px;*/
-        /*padding: 13px 10px 10px 10px;*/
         height: 50px;
         padding: 8px 10px 7px 10px;
     }
@@ -446,7 +476,6 @@ h3{
         flex-direction: column;
         flex-wrap: wrap-reverse;
 
-        z-index: -1;
         position: fixed;
         left:0;
         top: 50px;
@@ -471,7 +500,7 @@ h3{
         letter-spacing: 1px;
         line-height: 60px;
         height: 60px;
-        width: 100%;
+        width: 100vw;
         display: inline-block;
         padding: 0;
     }
@@ -498,9 +527,6 @@ h3{
         h1{
             font-size: 4rem;
         }
-    }
-    .top-img {
-        margin-top: 20px;
     }
 
     /*##############################*/
@@ -578,14 +604,20 @@ h3{
         text-align: center;
     }
 
+
     /*##############################*/
     /*links*/
     /*##############################*/
 
-    .link-img{
-        
+    h4{
+        font-size: 1.5rem;
     }
 
+    @media(max-width: 345px){
+        .mini-mobile{
+            display: inline;
+        }
+    }
 
     /*##############################*/
     /*footer*/
