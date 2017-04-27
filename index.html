@@ -10,6 +10,8 @@
   <script type="text/javascript" src="./jquery/jquery-3.2.1.min.js"></script>
   <script type="text/javascript">
     var windowWidth = $(window).width();
+    var windowHeight = $(window).height();
+    document.createElement('section');
 
     $(function(){
       $('a[href^="#"]').click(function(){
@@ -22,6 +24,13 @@
       });
     });
 
+    $(function () {
+      if(windowWidth > 768){
+        $('section.top').css('height',windowHeight - 75 + 'px');
+      }else{
+        $('section.top').css('height',windowHeight -50 + 'px');
+      }
+    });
 
     $(function(){
       $('div.menu-trigger').click(function(){
@@ -61,7 +70,6 @@
     </div>
     </a>
 
-    <!--menu-triggerをglobal-navから外す作戦あり-->
     <div class="menu-trigger">
       <span></span>
       <span></span>
@@ -72,10 +80,12 @@
         <li class="nav-item"><a href="#about" class="nav">ABOUT</a></li>
         <li class="nav-item"><a href="#contents" class="nav">CONTENTS</a></li>
         <li class="nav-item"><a href="#access" class="nav">ACCESS</a></li>
+        <li class="nav-item"><a href="#links" class="nav">LINKS</a></li>
       </ul>
     </nav>
   </header>
-  <section class="top" id="top">
+  <section class="under-header" id="top"></section>
+  <section class="top">
     <img class="top-img" src="./images/white_bulb.png" alt="電球">
     <h2 class="eeic">EEIC</h2>
     <p class="top1">東京大学工学部<br class="mobile">電子情報・電気電子工学科 <br class="mobile">五月祭展示</p>
@@ -145,6 +155,27 @@
       </p>
     </div>
   </section>
+  <!--<section class="factor" id="links">-->
+    <!--<h2 class="heading">LINKS</h2>-->
+    <!--<div class="contents-wrapper">-->
+      <!--<div class="contents-box">-->
+        <!--<img class="link-img" src="./images/mech.jpg" alt="機械工学科・機械情報工学科学生展示">-->
+        <!--<h3>機械工学科・機械情報工学科学生展示</h3>-->
+        <!--&lt;!&ndash;<p class="contents-text">&ndash;&gt;-->
+          <!--&lt;!&ndash;学生制作物展示ではEEICの学生が授業や実験で作成した、子どもでも簡単にマイコンで遊べるツールや画像処理・CGのライブラリOpenCV/GLを使った作品を展示します。&ndash;&gt;-->
+          <!--&lt;!&ndash;研究室展示では画像処理や分散コンピューティングなど情報系の技術や、美しいプラズマ現象や迫力満点の放電現象、未来の電気自動車など電気の最先端に触れることができます。&ndash;&gt;-->
+        <!--&lt;!&ndash;</p>&ndash;&gt;-->
+      <!--</div>-->
+      <!--<div class="contents-box">-->
+        <!--<img class="contents-img" src="./images/workshop.png" alt="ワークショップ">-->
+        <!--<h3>ワークショップ</h3>-->
+        <!--<p class="contents-text">-->
+          <!--電子工作教室、プログラミング教室、銀ナノインクワークショップの三つのワークショップを設けています。理系の中でも工学部、とりわけEEICでは「モノを創る」ことに重きを置いています。-->
+          <!--それぞれのワークショップで物作りという学校の勉強とは趣の異なる体験を子どもも大人の方もお楽しみください。-->
+        <!--</p>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</section>-->
   <footer class="footer">
     <p class="copyright">Copyright ©️ EEIC 五月祭展示<br class="mobile">「近未来体験2017」All rights reserved.</p>
   </footer>
