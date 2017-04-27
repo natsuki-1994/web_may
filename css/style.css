@@ -1,7 +1,5 @@
 @charset "UTF-8";
 
-/*所々要素中でコメントアウトしてるのはサイトには書いてあったけどWebstormがエラー吐いたやつです。*/
-
 /*##############################*/
 /*html*/
 /*##############################*/
@@ -15,7 +13,7 @@ body{
     font-size: 1.4rem;
     font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
     line-height: 1.6;
-    min-height: 565px;
+    min-height: 480px;
 }
 body p{
     margin-top: 20px;
@@ -159,7 +157,6 @@ body p{
     background: url("../images/top.jpg") center;
     background-size: cover;
     color: white;
-    height: 100vh;
     overflow: hidden;
     position: relative;
     z-index: 0;

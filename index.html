@@ -11,7 +11,13 @@
   <script type="text/javascript">
     var windowWidth = $(window).width();
     var windowHeight = $(window).height();
-
+    var flag = 0;
+    function close() {
+      $('ul.global-nav-list').slideUp(100);
+    }
+    function toggle() {
+      $('ul.global-nav-list').slideToggle(300);
+    }
 
     $(function(){
       $('a[href^="#"]').click(function(){
@@ -24,46 +30,65 @@
       });
     });
 
+    document.addEventListener('DOMContentLoaded', function () {
+      // @media screen and (max-width: 780px) と同じ
+      var mql = window.matchMedia('screen and (max-width: 800px)');
+      
+      function checkBreakPoint(mql) {
+        windowHeight = $(window).height();
 
+        if (mql.matches) {
+          // スマホ向け
+            flag = 1;
 
-
-
-      if(windowWidth < 800){
-        $(function () {
-          $('section.top').css('height',windowHeight - 50 + 'px');
-          console.log("change");
-        });
-
-        $(function(){
-          $('div.menu-trigger').click(function(){
-            $('ul.global-nav-list').slideToggle(300);
-            console.log("slide");
-          })
-        });
-
-        $(function(){
-          $('a.nav').click(function(){
-              $('ul.global-nav-list').slideUp(100);
-            });
+          $(function () {
+            $('section.top').css('height',windowHeight - 50 + 'px');
+            console.log();
+            $('ul.global-nav-list').css('display',"none");
+            $('nav.global-nav').css('width',windowWidth).css('height',"");
           });
 
-        $(function(){
-          $('a.header-link').click(function(){
-            $('ul.global-nav-list').slideUp(100);
+          $(function(){
+            $('div.menu-trigger').click(toggle);
           });
-        });
 
-        $(function(){
-          $('nav.global-nav').css('width',windowWidth);
-        });
-      }else {
-        $(function () {
-          $('section.top').css('height', windowHeight - 75 + 'px');
-        });
+          $(function () {
+            $('a.nav').click(close);
+          });
+          $(function () {
+            $('a.header-link').click(close);
+          });
+        } else {
+          // PC向け
+          flag = 0;
+
+          $(function () {
+            $('section.top').css('height',windowHeight - 75 + 'px');
+            $('nav.global-nav').css('width',"403px").css('height',"55px");
+            $('ul.global-nav-list').css('display',"inline-flex");
+          });
+
+          $(function(){
+            $('div.menu-trigger').unbind('click',toggle);
+          });
+
+          $(function(){
+            $('a.nav').unbind('click',close);
+          });
+
+          $(function(){
+            $('a.header-link').unbind('click',close);
+          });
+        }
       }
 
+      // ブレイクポイントの瞬間に発火
+      mql.addListener(checkBreakPoint);
 
+      // 読み込み時に動作させる
+      checkBreakPoint(mql);
 
+    });
   </script>
 
 
