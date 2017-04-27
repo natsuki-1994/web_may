@@ -8,7 +8,6 @@
 
 html {
     font-size: 62.5%;
-    height: 100%;
 }
 
 body{
@@ -17,7 +16,6 @@ body{
     font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
     line-height: 1.6;
     min-height: 565px;
-    height: 100%;
 }
 body p{
     margin-top: 20px;
@@ -66,6 +64,7 @@ body a{
     padding: 13px 70px 5px 90px;
     align-items: center;
     box-shadow: 0 0 15px 0 #4262a0;
+    /*border-bottom: 1px solid gray;*/
 }
 
 
@@ -138,6 +137,16 @@ body a{
         width: 100%;
     }
 }
+
+/*##############################*/
+/*under-header*/
+/*##############################*/
+
+.under-header{
+    height: 75px;
+    width: 100%;
+}
+
 /*##############################*/
 /*top*/
 /*##############################*/
@@ -146,7 +155,7 @@ body a{
     background: url("../images/top.jpg") center;
     background-size: cover;
     color: white;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
     position: relative;
     z-index: 0;
@@ -188,6 +197,7 @@ body a{
 }
 .top1{
     font-size: 2.5rem;
+    font-weight: bold;
 }
 h1{
     font-size: 8rem;
@@ -378,8 +388,13 @@ h3{
     /*header*/
     /*##############################*/
     .header{
-        height: 75px;
-        padding: 13px 10px 10px 10px;
+        /*height: 75px;*/
+        /*padding: 13px 10px 10px 10px;*/
+        height: 50px;
+        padding: 8px 10px 7px 10px;
+    }
+    .under-header{
+        height: 50px;
     }
 
 
@@ -388,11 +403,30 @@ h3{
         padding-right: 7px;
     }
 
+    .top-text{
+        letter-spacing: 1px;
+    }
+
+    .top-text p{
+        margin-top: 0;
+    }
+
+    .up{
+        font-size: 1.0rem;
+        line-height: 1.2;
+    }
+    .down{
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+
+
     .menu-trigger{
         border-left: 1px solid #cccccc;
-        height: 52px;
-        width: 52px;
-        padding: 5px 8px 8px 8px;
+        width: 50px;
+        height: 35px;
+        padding: 3px 8px 3px 8px;
 
         display: flex;
         flex-direction: column;
@@ -415,7 +449,7 @@ h3{
         z-index: -1;
         position: fixed;
         left:0;
-        top: 75px;
+        top: 50px;
 
         box-shadow: 0 5px 5px rgba(66, 98, 160,0.4);
     }
@@ -458,6 +492,7 @@ h3{
     }
     h1{
         font-size: 5rem;
+        letter-spacing: 9px;
     }
     @media (max-width: 320px) {
         h1{
@@ -466,6 +501,15 @@ h3{
     }
     .top-img {
         margin-top: 20px;
+    }
+
+    /*##############################*/
+    /*factor*/
+    /*##############################*/
+
+    .factor {
+        padding: 80px 50px 50px 50px;
+        margin-top: -50px;
     }
 
     /*##############################*/
