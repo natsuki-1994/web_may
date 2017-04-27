@@ -11,7 +11,6 @@
   <script type="text/javascript">
     var windowWidth = $(window).width();
     var windowHeight = $(window).height();
-    var flag = 0;
     function close() {
       $('ul.global-nav-list').slideUp(100);
     }
@@ -33,13 +32,12 @@
     document.addEventListener('DOMContentLoaded', function () {
       // @media screen and (max-width: 780px) と同じ
       var mql = window.matchMedia('screen and (max-width: 800px)');
-      
+
       function checkBreakPoint(mql) {
         windowHeight = $(window).height();
 
         if (mql.matches) {
           // スマホ向け
-            flag = 1;
 
           $(function () {
             $('section.top').css('height',windowHeight - 50 + 'px');
@@ -60,7 +58,6 @@
           });
         } else {
           // PC向け
-          flag = 0;
 
           $(function () {
             $('section.top').css('height',windowHeight - 75 + 'px');
