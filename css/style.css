@@ -337,6 +337,10 @@ h4{
     font-size: 2rem;
 }
 
+.links p{
+    margin-top: 0;
+}
+
 .link-img{
     height: 120px;
     max-width: 100%;

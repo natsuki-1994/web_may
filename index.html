@@ -11,6 +11,7 @@
   <script type="text/javascript">
     var windowWidth = $(window).width();
     var windowHeight = $(window).height();
+    var mql = window.matchMedia('screen and (max-width: 800px)');
     function close() {
       $('ul.global-nav-list').slideUp(100);
     }
@@ -29,17 +30,12 @@
       });
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-      // @media screen and (max-width: 780px) と同じ
-      var mql = window.matchMedia('screen and (max-width: 800px)');
-
-      function checkBreakPoint(mql) {
-        windowHeight = $(window).height();
-
+    function checkBreakPoint(mql) {
+      windowHeight = $(window).height();
+      console.log(mql.matches);
         if (mql.matches) {
           // スマホ向け
-
-          $(function () {
+         $(function () {
             $('section.top').css('height',windowHeight - 50 + 'px');
             console.log();
             $('ul.global-nav-list').css('display',"none");
@@ -85,7 +81,6 @@
       // 読み込み時に動作させる
       checkBreakPoint(mql);
 
-    });
   </script>
 
 
@@ -188,9 +183,10 @@
   <section class="factor" id="links">
     <h2 class="heading">LINKS</h2>
     <div class="contents-wrapper">
-      <a href="" class="contents-box links no-link">
+      <a href="http://ut-mech.com" class="contents-box links">
         <img class="link-img" src="./images/mech.jpg" alt="機械工学科・機械情報工学科学生展示">
-        <h4>工学部 <br class="mini-mobile">機械工学科・機械情報工学科<br>※開設中</h4>
+        <h4>工学部 <br class="mini-mobile">機械工学科・機械情報工学科</h4>
+        <p>※昨年度のサイトです。</p>
       </a>
       <a href="https://ap-phys.net/" class="contents-box links">
         <img class="link-img" src="./images/ap-phys.jpg" alt="ワークショップ">
