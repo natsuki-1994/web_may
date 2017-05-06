@@ -31,13 +31,61 @@
             });
         });
 
+        function checkBreakPoint(mql) {
+            windowHeight = $(window).height();
+            if (mql.matches) {
+                // スマホ向け
+                $(function () {
+                    $('ul.global-nav-list').css('display',"none");
+                    $('nav.global-nav').css('width',windowWidth).css('height',"");
+                });
+
+                $(function(){
+                    $('div.menu-trigger').click(toggle);
+                });
+
+                $(function () {
+                    $('a.nav').click(close);
+                });
+                $(function () {
+                    $('a.header-link').click(close);
+                });
+            } else {
+                // PC向け
+
+                $(function () {
+                    $('nav.global-nav').css('width',"403px").css('height',"55px");
+                    $('ul.global-nav-list').css('display',"inline-flex");
+                });
+
+                $(function(){
+                    $('div.menu-trigger').unbind('click',toggle);
+                });
+
+                $(function(){
+                    $('a.nav').unbind('click',close);
+                });
+
+                $(function(){
+                    $('a.header-link').unbind('click',close);
+                });
+            }
+        }
+
+        // ブレイクポイントの瞬間に発火
+        mql.addListener(checkBreakPoint);
+
+        // 読み込み時に動作させる
+        checkBreakPoint(mql);
+
+
     </script>
 
 
 </head>
 <body>
 <header class="header">
-    <a href="#top" class="header-link">
+    <a href="index.html#top" class="header-link">
         <img class="header_img" src="./images/black_bulb.png" alt="eeic">
         <div class="top-text">
             <p class="up">EEIC 五月祭展示</p>
@@ -53,47 +101,120 @@
     <nav class="global-nav">
         <ul class="global-nav-list">
             <li class="nav-item"><a href="index.html#about" class="nav">ABOUT</a></li>
-            <li class="nav-item no-link"><a href="#contents" class="nav">CONTENTS</a></li>
+            <li class="nav-item no-link"><a href="" class="nav">CONTENTS</a></li>
             <li class="nav-item"><a href="index.html#access" class="nav">ACCESS</a></li>
             <li class="nav-item"><a href="index.html#links" class="nav">LINKS</a></li>
         </ul>
     </nav>
 </header>
-<section class="under-header" id="top"></section>
+<section class="under-header"></section>
 <section class="top">
-    <img class="top-img" src="./images/white_bulb.png" alt="電球">
-    <h2 class="eeic">展示</h2>
+    <h2 class="title">展示</h2>
+    <p class="subtitle">EXHIBITION</p>
 </section>
 
-<section class="factor" id="contents">
-    <h2 class="heading">CONTENTS</h2>
-    <div class="contents-wrapper">
-        <div class="contents-box">
-            <img class="contents-img" src="./images/exhibition.png" alt="展示">
-            <h3>展示</h3>
-            <p class="contents-text">
-                学生制作物展示ではEEICの学生が授業や実験で作成した、子どもでも簡単にマイコンで遊べるツールや画像処理・CGのライブラリOpenCV/GLを使った作品を展示します。
-                研究室展示では画像処理や分散コンピューティングなど情報系の技術や、美しいプラズマ現象や迫力満点の放電現象、未来の電気自動車など電気の最先端に触れることができます。
-            </p>
+<section class="contents-wrapper">
+    <div class="contents-box">
+        <img class="contents-img" src="./images/exhibition.png" alt="展示">
+        <h3>学生制作物展示</h3>
+        <p class="contents-text">
+                学生制作物展示では、電子情報・電気電子工学科に所属する学部3年生の制作物を展示しています。「ビックリドッキリメカ」で知られる電子情報機器学の授業で
+                作られたオリジナリティあふれる作品や、学生実験で作られた画像処理・情報可視化などのテーマに沿った作品をご覧いただけます。
+                初めて電子工作をする学生もいる中で、たくさんの技術を学び、いろいろなアイディアを出し合って作られた作品を見ることで、
+                日々の授業の成果が創造的な活動に課されていることを実感できます。楽しい展示がたくさんあるので是非お越しください！
+        </p>
+        <div class="exh-contents-wrapper">
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">室内環境チェッカー</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">Peegar</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">USBフラッシュロック</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">ICカード残額デジアナ表示器</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">SoundGPS</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">ショージニ・メアリー</p>
+            </div>
         </div>
-        <div class="contents-box">
-            <img class="contents-img" src="./images/workshop.png" alt="ワークショップ">
-            <h3>ワークショップ</h3>
-            <p class="contents-text">
-                電子工作教室、プログラミング教室、銀ナノインクワークショップの三つのワークショップを設けています。理系の中でも工学部、とりわけEEICでは「モノを創る」ことに重きを置いています。
-                それぞれのワークショップで物作りという学校の勉強とは趣の異なる体験を子どもも大人の方もお楽しみください。
-            </p>
+    </div>
+    <div class="contents-box">
+        <img class="contents-img" src="./images/workshop.png" alt="ワークショップ">
+        <h3>研究室展示</h3>
+        <p class="contents-text">
+            研究室展示では、未来の電気自動車や美しプラズマ現象、迫力満点の放電現象を生で見たり、リニアモーターカー試乗、
+            自分で書くことのできるゲームAIなど、実際に体験しながら電気系・情報系の技術がどのように用いられているのか学ぶことができます。
+        </p>
+        <div class="exh-contents-wrapper">
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">筋電図でラジコンを動かそう</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">リニアモーターカー試乗</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">手書きスケッチでの漫画の画像検索アプリケーション</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">分散コンピューティング</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">五月祭アプリ</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">生体調和エレクトロニクス</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">なんかすごいぞ！電気のチカラ！</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">ゲートアレイによる集積回路の設計・マイクロマシンへの応用</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">光インターコネクションのための半導体デバイス</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">地の情報処理</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">見るプラズマ</p>
+            </div>
+            <div class="exh-content">
+                <img class="exh-img" src="./images/" alt="image">
+                <p class="exh-text">雷実験</p>
+            </div>
         </div>
-        <div class="contents-box">
-            <img class="contents-img" src="./images/lecture.png" alt="講演">
-            <h3>講演</h3>
-            <p class="contents-text">
-                講演会では、現在Googleで働く学科OBの方に、この学科で学んだことが現在行っているChromeブラウザの開発にどう繋がっているのか、情報科学の面白さを交えて講演をしていただきます。
-                卒論発表会では、平成28年度の卒業研究で優秀表彰された学生による発表会を行います。
-                電気系学科の最先端を行く開発・卒業研究を覗いてみませんか？
-
-            </p>
-        </div>
+    </div>
+    <div class="contents-box">
+        <img class="contents-img" src="./images/lecture.png" alt="講演">
+        <h3>VR企画</h3>
+        <p class="contents-text">
+            VR企画では、ゴーグル型のデバイスを使用したVR(バーチャル・リアリティ)体験ができます。
+            子供から大人まで楽しめるよう、3種類の「新体験」を用意しました。次世代のテクノロジーに触れて、仮想ではない”本物”の近未来を感じてください！
+        </p>
     </div>
 </section>
 

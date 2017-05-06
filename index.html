@@ -32,12 +32,10 @@
 
     function checkBreakPoint(mql) {
       windowHeight = $(window).height();
-      console.log(mql.matches);
         if (mql.matches) {
           // スマホ向け
          $(function () {
             $('section.top').css('height',windowHeight - 50 + 'px');
-            console.log();
             $('ul.global-nav-list').css('display',"none");
             $('nav.global-nav').css('width',windowWidth).css('height',"");
           });
@@ -136,7 +134,7 @@
     <h2 class="heading">CONTENTS</h2>
     <div class="contents-wrapper">
       <div class="contents-box">
-        <img class="contents-img" src="./images/exhibition.png" alt="展示">
+        <a href="exhibition.html"><img class="contents-img" src="./images/exhibition.png" alt="展示"></a>
         <h3>展示</h3>
         <p class="contents-text">
           学生制作物展示ではEEICの学生が授業や実験で作成した、子どもでも簡単にマイコンで遊べるツールや画像処理・CGのライブラリOpenCV/GLを使った作品を展示します。
