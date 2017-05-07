@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>近未来体験2017</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/contents.css">
+
+    <script type="text/javascript" src="./jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        var mql = window.matchMedia('screen and (max-width: 800px)');
+        function close() {
+            $('ul.global-nav-list').slideUp(100);
+        }
+        function toggle() {
+            $('ul.global-nav-list').slideToggle(300);
+        }
+
+        $(function(){
+            $('a[href^="#"]').click(function(){
+                var speed = 300;
+                var href= $(this).attr("href");
+                var target = $(href == "#" || href == "" ? 'html' : href);
+                var position = target.offset().top;
+                $("html, body").animate({scrollTop:position}, speed, "swing");
+                return false;
+            });
+        });
+
+        function checkBreakPoint(mql) {
+            windowHeight = $(window).height();
+            if (mql.matches) {
+                // スマホ向け
+                $(function () {
+                    $('ul.global-nav-list').css('display',"none");
+                    $('nav.global-nav').css('width',windowWidth).css('height',"");
+                });
+
+                $(function(){
+                    $('div.menu-trigger').click(toggle);
+                });
+
+                $(function () {
+                    $('a.nav').click(close);
+                });
+                $(function () {
+                    $('a.header-link').click(close);
+                });
+            } else {
+                // PC向け
+
+                $(function () {
+                    $('nav.global-nav').css('width',"403px").css('height',"55px");
+                    $('ul.global-nav-list').css('display',"inline-flex");
+                });
+
+                $(function(){
+                    $('div.menu-trigger').unbind('click',toggle);
+                });
+
+                $(function(){
+                    $('a.nav').unbind('click',close);
+                });
+
+                $(function(){
+                    $('a.header-link').unbind('click',close);
+                });
+            }
+        }
+
+        // ブレイクポイントの瞬間に発火
+        mql.addListener(checkBreakPoint);
+
+        // 読み込み時に動作させる
+        checkBreakPoint(mql);
+
+
+    </script>
+
+
+</head>
+<body>
+<header class="header">
+    <a href="index.html#top" class="header-link">
+        <img class="header_img" src="./images/black_bulb.png" alt="eeic">
+        <div class="top-text">
+            <p class="up">EEIC 五月祭展示</p>
+            <p class="down">近未来体験2017</p>
+        </div>
+    </a>
+
+    <div class="menu-trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="global-nav">
+        <ul class="global-nav-list">
+            <li class="nav-item"><a href="index.html#about" class="nav">ABOUT</a></li>
+            <li class="nav-item no-link"><a href="" class="nav">CONTENTS</a></li>
+            <li class="nav-item"><a href="index.html#access" class="nav">ACCESS</a></li>
+            <li class="nav-item"><a href="index.html#links" class="nav">LINKS</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="under-header"></section>
+<section class="top">
+    <h2 class="title">ワークショップ</h2>
+    <p class="subtitle">WORKSHOP</p>
+</section>
+
+<section class="contents-wrapper">
+    <div class="contents-box">
+        <img class="contents-img" src="./images/w-e-work.png" alt="電子工作教室">
+        <h3>電子工作教室</h3>
+        <p class="contents-text">
+            学生が設計した電子工作キットを組み立てることで、電気系エンジニア、研究者が普段行なっているはんだ付けを体験することができます。
+            電気系の学生が丁寧にサポートするので、はんだ付けが初めての方から上級者の方までお楽しみいただけます。
+            作って楽しい、遊んで楽しい電子工作教室、皆様の来場をお待ちしております。
+        </p>
+        <div class="CP-contents-wrapper">
+            <div class="CP-content">
+                <img class="CP-img" src="./images/w-e-syokyu.png" alt="image">
+                <p class="CP-text">初級</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/w-e-tyukyu.png" alt="image">
+                <p class="CP-text">中級</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/w-e-joukyu.png" alt="image">
+                <p class="CP-text">上級</p>
+            </div>
+        </div>
+    </div>
+    <div class="contents-box">
+        <img class="contents-img" src="./images/w-programing.png" alt="プログラミング教室">
+        <h3>プログラミング教室</h3>
+        <p class="contents-text">
+            プログラミングをして遊びましょう。ブロックを組み合わせ動き方を作り、鳥に教えてゴールまで運んであげましょう。
+            ブロックをうまく組み合わせると、鳥がかしこく動けるようになります。全てのコースで鳥をゴールまで連れて行くことができるでしょうか？
+        </p>
+    </div>
+    <div class="contents-box">
+        <img class="contents-img" src="./images/w-ag-nano.png" alt="銀ナノインクワークショップ">
+        <h3>銀ナノインクワークショップ</h3>
+        <p class="contents-text">
+            V紙に書くだけで電気を通す不思議なペンを使ったワークショップを行います。自由にお絵描きした線が電気を通すようになり、LEDを光らせることができます。
+            試行錯誤して回路を作って行く過程で、通常の学習ではなかなか想像のつきにくい電気に対して小さなお子さんでも親しみを持つことができます。
+        </p>
+    </div>
+</section>
+
+<footer class="footer">
+    <p class="copyright">Copyright &copy; EEIC 五月祭展示<br class="mobile">「近未来体験2017」All rights reserved.</p>
+</footer>
+</body>
+</html>
