@@ -19,6 +19,12 @@
         function toggle() {
             $('ul.global-nav-list').slideToggle(300);
         }
+        function open() {
+            $('nav.CP-nav').slideDown(300);
+        }
+        function close2() {
+            $('nav.CP-nav').slideUp(300);
+        }
 
         $(function(){
             $('a[href^="#"]').click(function(){
@@ -37,7 +43,24 @@
                 // スマホ向け
                 $(function () {
                     $('ul.global-nav-list').css('display',"none");
+                    $('nav.CP-nav').css('display',"none");
                     $('nav.global-nav').css('width',windowWidth).css('height',"");
+                });
+
+                $(function(){
+                    $('div.CP-wrap').unbind('mouseenter',open);
+                });
+
+                $(function(){
+                    $('li.no-wrap').unbind('mouseenter',close2);
+                });
+
+                $(function(){
+                    $('nav.CP-nav').unbind('mouseleave',close2);
+                });
+
+                $(function(){
+                    $('body').unbind('mouseleave',close2);
                 });
 
                 $(function(){
@@ -55,6 +78,7 @@
 
                 $(function () {
                     $('nav.global-nav').css('width',"403px").css('height',"55px");
+                    $('nav.CP-nav').css('display',"none");
                     $('ul.global-nav-list').css('display',"inline-flex");
                 });
 
@@ -69,6 +93,19 @@
                 $(function(){
                     $('a.header-link').unbind('click',close);
                 });
+
+                $(function () {
+                    $('div.CP-wrap').mouseenter(open);
+                });
+                $(function () {
+                    $('li.no-wrap').mouseenter(close2);
+                });
+                $(function () {
+                    $('nav.CP-nav').mouseleave(close2);
+                });
+                $(function () {
+                    $('body').mouseleave(close2);
+                });
             }
         }
 
@@ -77,7 +114,6 @@
 
         // 読み込み時に動作させる
         checkBreakPoint(mql);
-
 
     </script>
 
@@ -100,10 +136,17 @@
     </div>
     <nav class="global-nav">
         <ul class="global-nav-list">
-            <li class="nav-item"><a href="index.html#about" class="nav">ABOUT</a></li>
-            <li class="nav-item no-link"><a href="" class="nav">CONTENTS</a></li>
-            <li class="nav-item"><a href="index.html#access" class="nav">ACCESS</a></li>
-            <li class="nav-item"><a href="index.html#links" class="nav">LINKS</a></li>
+            <li class="nav-item no-wrap"><a href="index.html#about" class="nav">ABOUT</a></li>
+            <div class="nav-item CP-wrap no-link"><a href="index.html#contents" class="nav">CONTENTS</a></div>
+            <li class="nav-item no-wrap"><a href="index.html#access" class="nav">ACCESS</a></li>
+            <li class="nav-item no-wrap"><a href="index.html#links" class="nav">LINKS</a></li>
+        </ul>
+    </nav>
+    <nav class="CP-nav">
+        <ul class="CP-nav-list">
+            <li class="CP-item"><a href="exhibition.html">EXHIBITION</a></li>
+            <li class="CP-item now"><a href="workshop.html">WORKSHOP</a></li>
+            <li class="CP-item"><a href="lecture.html">LECTURE</a></li>
         </ul>
     </nav>
 </header>

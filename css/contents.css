@@ -8,10 +8,11 @@
         height: 1px;
         background-color: black;
     }
+
 }
 @media (max-width: 800px) {
     .global-nav .no-link{
-        display: none;
+        /*display: none;*/
     }
 }
 

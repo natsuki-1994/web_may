@@ -18,6 +18,12 @@
     function toggle() {
       $('ul.global-nav-list').slideToggle(300);
     }
+    function open() {
+        $('nav.CP-nav').slideDown(300);
+    }
+    function close2() {
+        $('nav.CP-nav').slideUp(300);
+    }
 
     $(function(){
       $('a[href^="#"]').click(function(){
@@ -31,47 +37,77 @@
     });
 
     function checkBreakPoint(mql) {
-      windowHeight = $(window).height();
+        windowHeight = $(window).height();
         if (mql.matches) {
-          // スマホ向け
-         $(function () {
-            $('section.top').css('height',windowHeight - 50 + 'px');
-            $('ul.global-nav-list').css('display',"none");
-            $('nav.global-nav').css('width',windowWidth).css('height',"");
-          });
+            // スマホ向け
+            $(function () {
+                $('ul.global-nav-list').css('display',"none");
+                $('nav.CP-nav').css('display',"none");
+                $('nav.global-nav').css('width',windowWidth).css('height',"");
+            });
 
-          $(function(){
-            $('div.menu-trigger').click(toggle);
-          });
+            $(function(){
+                $('li.CP-wrap').unbind('mouseenter',open);
+            });
 
-          $(function () {
-            $('a.nav').click(close);
-          });
-          $(function () {
-            $('a.header-link').click(close);
-          });
+            $(function(){
+                $('li.no-wrap').unbind('mouseenter',close2);
+            });
+
+            $(function(){
+                $('nav.CP-nav').unbind('mouseleave',close2);
+            });
+
+            $(function(){
+                $('body').unbind('mouseleave',close2);
+            });
+
+            $(function(){
+                $('div.menu-trigger').click(toggle);
+            });
+
+            $(function () {
+                $('a.nav').click(close);
+            });
+            $(function () {
+                $('a.header-link').click(close);
+            });
         } else {
-          // PC向け
+            // PC向け
 
-          $(function () {
-            $('section.top').css('height',windowHeight - 75 + 'px');
-            $('nav.global-nav').css('width',"403px").css('height',"55px");
-            $('ul.global-nav-list').css('display',"inline-flex");
-          });
+            $(function () {
+                $('section.top').css('height',windowHeight - 75 + 'px');
+                $('nav.global-nav').css('width',"403px").css('height',"55px");
+                $('nav.CP-nav').css('display',"none");
+                $('ul.global-nav-list').css('display',"inline-flex");
+            });
 
-          $(function(){
-            $('div.menu-trigger').unbind('click',toggle);
-          });
+            $(function(){
+                $('div.menu-trigger').unbind('click',toggle);
+            });
 
-          $(function(){
-            $('a.nav').unbind('click',close);
-          });
+            $(function(){
+                $('a.nav').unbind('click',close);
+            });
 
-          $(function(){
-            $('a.header-link').unbind('click',close);
-          });
+            $(function(){
+                $('a.header-link').unbind('click',close);
+            });
+
+            $(function () {
+                $('li.CP-wrap').mouseenter(open);
+            });
+            $(function () {
+                $('li.no-wrap').mouseenter(close2);
+            });
+            $(function () {
+                $('nav.CP-nav').mouseleave(close2);
+            });
+            $(function () {
+               $('body').mouseleave(close2);
+            });
         }
-      }
+    }
 
       // ブレイクポイントの瞬間に発火
       mql.addListener(checkBreakPoint);
@@ -100,10 +136,17 @@
     </div>
     <nav class="global-nav">
       <ul class="global-nav-list">
-        <li class="nav-item"><a href="#about" class="nav">ABOUT</a></li>
-        <li class="nav-item"><a href="#contents" class="nav">CONTENTS</a></li>
-        <li class="nav-item"><a href="#access" class="nav">ACCESS</a></li>
-        <li class="nav-item"><a href="#links" class="nav">LINKS</a></li>
+        <li class="nav-item no-wrap"><a href="#about" class="nav">ABOUT</a></li>
+        <li class="nav-item CP-wrap"><a href="#contents" class="nav">CONTENTS</a></li>
+        <li class="nav-item no-wrap"><a href="#access" class="nav">ACCESS</a></li>
+        <li class="nav-item no-wrap"><a href="#links" class="nav">LINKS</a></li>
+      </ul>
+    </nav>
+    <nav class="CP-nav">
+      <ul class="CP-nav-list">
+        <li class="CP-item"><a href="exhibition.html">EXHIBITION</a></li>
+        <li class="CP-item"><a href="workshop.html">WORKSHOP</a></li>
+        <li class="CP-item"><a href="lecture.html">LECTURE</a></li>
       </ul>
     </nav>
   </header>
