@@ -11,6 +11,7 @@
   <script type="text/javascript">
     var windowWidth = $(window).width();
     var windowHeight = $(window).height();
+    var flag = 1;
     var mql = window.matchMedia('screen and (max-width: 800px)');
     function close() {
       $('ul.global-nav-list').slideUp(100);
@@ -23,6 +24,11 @@
     }
     function close2() {
         $('nav.CP-nav').slideUp(300);
+        if(flag == 2){$('li.at').addClass('slide-up').removeClass('slide-down'); flag = 1;};
+    }
+    function toggle2() {
+        $('nav.CP-nav').slideToggle(300);
+        if(flag == 1){$('li.at').addClass('slide-down').removeClass('slide-up'); flag = 2;}else{$('li.at').addClass('slide-up').removeClass('slide-down'); flag = 1;};
     }
 
     $(function(){
@@ -64,14 +70,17 @@
             });
 
             $(function(){
-                $('div.menu-trigger').click(toggle);
+                $('div.menu-trigger').click(toggle).click(close2);
             });
 
             $(function () {
-                $('a.nav').click(close);
+                $('a.nav').click(close).click(close2);
             });
             $(function () {
-                $('a.header-link').click(close);
+                $('a.header-link').click(close).click(close2);
+            });
+            $(function () {
+                $('div.tri').click(toggle2);
             });
         } else {
             // PC向け
@@ -84,15 +93,18 @@
             });
 
             $(function(){
-                $('div.menu-trigger').unbind('click',toggle);
+                $('div.menu-trigger').unbind('click',toggle).unbind('click',close2);
             });
 
             $(function(){
-                $('a.nav').unbind('click',close);
+                $('a.nav').unbind('click',close).unbind('click',close2);
             });
 
             $(function(){
-                $('a.header-link').unbind('click',close);
+                $('a.header-link').unbind('click',close).unbind('click',close2);
+            });
+            $(function () {
+                $('div.tri').unbind('click',toggle2);
             });
 
             $(function () {
@@ -138,8 +150,8 @@
     <nav class="global-nav">
       <ul class="global-nav-list">
         <li class="nav-item no-wrap"><a href="#about" class="nav">ABOUT</a></li>
-        <li class="nav-item CP-wrap"><a href="#contents" class="nav">CONTENTS</a></li>
-        <li class="nav-item no-wrap"><a href="#access" class="nav">ACCESS</a></li>
+        <li class="nav-item CP-wrap C-L"><div class="space1"></div><a href="#contents" class="nav">CONTENTS</a><div class="space2"><div class="tri"></div></div></li>
+        <li class="nav-item no-wrap at"><a href="#access" class="nav">ACCESS</a></li>
         <li class="nav-item no-wrap"><a href="#links" class="nav">LINKS</a></li>
       </ul>
     </nav>

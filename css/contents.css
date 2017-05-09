@@ -135,3 +135,38 @@
         width: 49%;
     }
 }
+
+/*##############################*/
+/*CP link*/
+/*##############################*/
+
+.CP-link{
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+
+
+    /*height: 30px;*/
+    width: 100vw;
+}
+
+.CP-button1{
+    float: left;
+
+    background-color: rgba(0,0,0,0.5);
+}
+
+.CP-button2{
+    float: right;
+
+    background-color: rgba(0,0,0,0.5);
+}
+
+
+.CP-link a{
+    display: block;
+
+    color: white;
+    line-height: 40px;
+    width: 100px;
+}
