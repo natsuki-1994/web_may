@@ -24,18 +24,18 @@
     }
     function close2() {
         $('nav.CP-nav').slideUp(300);
-        if(flag == 2){$('li.at').addClass('slide-up').removeClass('slide-down'); flag = 1;};
+        if(flag === 2){$('li.at').addClass('slide-up').removeClass('slide-down'); flag = 1;}
     }
     function toggle2() {
         $('nav.CP-nav').slideToggle(300);
-        if(flag == 1){$('li.at').addClass('slide-down').removeClass('slide-up'); flag = 2;}else{$('li.at').addClass('slide-up').removeClass('slide-down'); flag = 1;};
+        if(flag === 1){$('li.at').addClass('slide-down').removeClass('slide-up'); flag = 2;}else{$('li.at').addClass('slide-up').removeClass('slide-down'); flag = 1;}
     }
 
     $(function(){
       $('a[href^="#"]').click(function(){
         var speed = 300;
         var href= $(this).attr("href");
-        var target = $(href == "#" || href == "" ? 'html' : href);
+        var target = $(href === "#" || href === "" ? 'html' : href);
         var position = target.offset().top;
         $("html, body").animate({scrollTop:position}, speed, "swing");
         return false;
