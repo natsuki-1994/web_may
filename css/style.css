@@ -54,11 +54,10 @@ body p{
     position: fixed;
     background: white;
 
-    z-index: 1;
+    z-index: 2;
     padding: 13px 70px 5px 90px;
     align-items: center;
     box-shadow: 0 0 15px 0 #4262a0;
-    /*border-bottom: 1px solid gray;*/
 }
 .header a{
     color: black;
@@ -105,6 +104,7 @@ body p{
         float: right;
 
         width: 403px;
+        z-index: 2;
     }
 
     .global-nav .nav-item{
@@ -120,8 +120,7 @@ body p{
         position: relative;
         transition: .3s;
     }
-}
-@media (min-width: 800px) {
+
     .global-nav .nav-item a::after {
         position: absolute;
         bottom: 8px;
@@ -138,6 +137,65 @@ body p{
     .global-nav .nav-item a:hover::after {
         width: 100%;
     }
+}
+
+
+.CP-nav{
+    position: fixed;
+    top: 75px;
+    right: 255px;
+    width: 125px;
+background-color: rgba(255,255,255,0.8);
+    justify-content: center;
+
+    box-shadow: 0 6px 8px -5px #4262a0;
+}
+.CP-nav-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.CP-item a{
+    display: inline-block;
+
+    line-height: 55px;
+    height: 55px;
+    color: black;
+    letter-spacing: 1px;
+
+    margin: auto;
+    padding: 0 10px;
+    position: relative;
+    transition: .3s;
+}
+
+.CP-nav .CP-item a::after {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    content: '';
+    width: 0;
+    height: 1px;
+    background-color: black;
+    transition: .3s;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.CP-nav .CP-item a:hover::after {
+    width: 100%;
+}
+
+.CP-nav-list .now a::after{
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: black;
 }
 
 /*##############################*/
@@ -289,6 +347,13 @@ h1{
 }
 .contents-box{
     width: 27%;
+
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column; /* Safari */
+    flex-direction:         column;
+
+    align-items: center;
 }
 .contents-img{
     width: 75%;
@@ -296,11 +361,32 @@ h1{
 
 .contents-text{
     text-align: justify;
+
+    flex-grow: 2;
 }
 h3{
     font-size: 2.2rem;
     letter-spacing: 3px;
     margin-top: 30px;
+
+    flex-grow: 0;
+}
+
+.link-button{
+    display: block;
+    line-height: 2;
+    width: 60%;
+    border: 1px solid black;
+
+    margin-top: 20px;
+    color: black;
+
+    flex-grow: 0;
+}
+
+.contents-box a:hover {
+    background-color: #eeeeee;
+    transition: .3s;
 }
 
 
@@ -337,14 +423,13 @@ h4{
     font-size: 2rem;
 }
 
+.links p{
+    margin-top: 0;
+}
+
 .link-img{
     height: 120px;
     max-width: 100%;
-}
-
-.no-link{
-    pointer-events:none;
-    color: gray;
 }
 
 .mini-mobile{
@@ -473,12 +558,11 @@ h4{
 
     .global-nav{
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap-reverse;
 
         position: fixed;
         left:0;
         top: 50px;
+        z-index: 2;
 
         box-shadow: 0 5px 5px rgba(66, 98, 160,0.4);
     }
@@ -505,6 +589,101 @@ h4{
         padding: 0;
     }
 
+    .C-L{
+        display: flex;
+        flex-direction: row;
+    }
+    .nav{
+        width: 50vw;
+    }
+
+    .space1{
+        width: 25vw;
+        height: 60px;
+        float: left;
+    }
+    .space2{
+        width: 25vw;
+        height: 60px;
+        float: right;
+    }
+
+    .tri{
+        width: 0;
+        height:0;
+        border: 10px solid transparent;
+        border-top: 10px solid #aaaaaa;
+        margin: 25px auto;
+    }
+
+    .CP-nav{
+        top:170px;
+        right: 0;
+        height: 180px;
+        width: 100vw;
+
+        overflow: hidden;
+        background-color: rgba(0,0,0,0);
+        box-shadow: none;
+    }
+
+    .CP-nav-list{
+        flex-direction: column;
+
+        margin-top:-180px;
+
+        height: auto;
+        transition: .23s;
+        background-color: black;
+    }
+
+    .CP-item{
+        width: 100vw;
+        height: 60px;
+
+        border-bottom: 1px solid white;
+    }
+
+    .CP-item a{
+        display: block;
+
+        line-height: 60px;
+        height: 60px;
+    }
+
+    .CP-nav .CP-item a{
+        letter-spacing: 1px;
+        line-height: 55px;
+        height: 55px;
+        margin: 0 20px;
+        display: inline-block;
+        padding: 0 10px;
+        position: relative;
+
+        color: white;
+    }
+
+    .CP-nav-list .now a::after{
+        background-color: white;
+    }
+
+    .slide-down{
+        margin-top: 180px;
+        transition: .3s;
+    }
+    .slide-up{
+        margin-top: 0;
+        transition: .23s;
+    }
+
+
+    .through{
+        margin-top:0;
+
+        z-index: 2;
+        transition: .3s;
+        pointer-events: auto;
+    }
 
     /*##############################*/
     /*top*/

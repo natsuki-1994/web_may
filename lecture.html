@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>近未来体験2017</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/contents.css">
+
+    <script type="text/javascript" src="./jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        var flag = 2;// 1は閉じている状態
+        var mql = window.matchMedia('screen and (max-width: 800px)');
+        function close() {
+            $('ul.global-nav-list').slideUp(300);
+        }
+        function toggle() {
+            $('ul.global-nav-list').slideToggle(300);
+        }
+        function open() {
+            $('nav.CP-nav').slideDown(300);
+        }
+        function close2() {
+            if (mql.matches) {
+                $('li.at').addClass('slide-up').removeClass('slide-down');
+                $('ul.CP-nav-list').removeClass('through');
+                $('nav.CP-nav').css('z-index', 1);
+                flag = 1;
+            }else {
+                $('nav.CP-nav').slideUp(300);
+            }
+        }
+        function toggle2() {
+            if(flag === 1){$('li.at').addClass('slide-down').removeClass('slide-up'); $('ul.CP-nav-list').addClass('through');$('nav.CP-nav').css('z-index',3); flag = 2;}
+            else{$('ul.CP-nav-list').removeClass('through'); $('li.at').addClass('slide-up').removeClass('slide-down');$('nav.CP-nav').css('z-index',1);  flag = 1;}
+        }
+
+        $(function(){
+            $('a[href^="#"]').click(function(){
+                var speed = 300;
+                var href= $(this).attr("href");
+                var target = $(href === "#" || href === "" ? 'html' : href);
+                var position = target.offset().top;
+                $("html, body").animate({scrollTop:position}, speed, "swing");
+                return false;
+            });
+        });
+
+        function checkBreakPoint(mql) {
+            windowHeight = $(window).height();
+            if (mql.matches) {
+                // スマホ向け
+                $(function () {
+                    $('ul.global-nav-list').css('display',"none");
+                    $('nav.CP-nav').css('display',"block").css('z-index', 1);
+                    $('nav.global-nav').css('width',windowWidth).css('height',"");
+
+                    $('li.at').addClass('slide-up').removeClass('slide-down');
+                    $('ul.CP-nav-list').removeClass('through');
+                    flag = 1;
+                });
+
+                $(function(){
+                    $('li.CP-wrap').unbind('mouseenter',open);
+                });
+
+                $(function(){
+                    $('li.no-wrap').unbind('mouseenter',close2);
+                });
+
+                $(function(){
+                    $('body').unbind('mouseleave',close2);
+                });
+
+                $(function(){
+                    $('div.menu-trigger').click(toggle).click(close2);
+                });
+
+                $(function () {
+                    $('a.nav').click(close).click(close2);
+                });
+                $(function () {
+                    $('a.header-link').click(close).click(close2);
+                });
+                $(function () {
+                    $('div.tri').click(toggle2);
+                });
+            } else {
+                // PC向け
+
+                $(function () {
+                    $('nav.global-nav').css('width',"403px").css('height',"55px");
+                    $('nav.CP-nav').css('display',"none");
+                    $('ul.global-nav-list').css('display',"inline-flex");
+                });
+
+                $(function(){
+                    $('div.menu-trigger').unbind('click',toggle).unbind('click',close2);
+                });
+
+                $(function(){
+                    $('a.nav').unbind('click',close).unbind('click',close2);
+                });
+
+                $(function(){
+                    $('a.header-link').unbind('click',close).unbind('click',close2);
+                });
+                $(function () {
+                    $('div.tri').unbind('click',toggle2);
+                });
+
+                $(function () {
+                    $('li.CP-wrap').mouseenter(open);
+                });
+                $(function () {
+                    $('li.no-wrap').mouseenter(close2);
+                });
+                $(function () {
+                    $('header').mouseleave(close2);
+                });
+
+            }
+        }
+
+        // ブレイクポイントの瞬間に発火
+        mql.addListener(checkBreakPoint);
+
+        // 読み込み時に動作させる
+        checkBreakPoint(mql);
+
+    </script>
+
+
+</head>
+<body>
+<header class="header">
+    <a href="index.html#top" class="header-link">
+        <img class="header_img" src="./images/black_bulb.png" alt="eeic">
+        <div class="top-text">
+            <p class="up">EEIC 五月祭展示</p>
+            <p class="down">近未来体験2017</p>
+        </div>
+    </a>
+
+    <div class="menu-trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="global-nav">
+        <ul class="global-nav-list">
+            <li class="nav-item no-wrap"><a href="index.html#about" class="nav">ABOUT</a></li>
+            <li class="nav-item CP-wrap C-L"><div class="space1"></div><a href="index.html#contents" class="nav">CONTENTS</a><div class="space2"><div class="tri"></div></div></li>
+            <li class="nav-item no-wrap at"><a href="index.html#access" class="nav">ACCESS</a></li>
+            <li class="nav-item no-wrap"><a href="index.html#links" class="nav">LINKS</a></li>
+        </ul>
+    </nav>
+    <nav class="CP-nav">
+        <ul class="CP-nav-list">
+            <li class="CP-item"><a href="exhibition.html">EXHIBITION</a></li>
+            <li class="CP-item"><a href="workshop.html">WORKSHOP</a></li>
+            <li class="CP-item now"><a href="lecture.html">LECTURE</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="under-header"></section>
+<section class="top">
+    <h2 class="title">講演</h2>
+    <p class="subtitle">LECTURE</p>
+</section>
+
+<section class="contents-wrapper">
+    <div class="contents-box">
+        <img class="contents-img" src="./images/l-thesis.png" alt="展示">
+        <h3>優秀卒論発表</h3>
+        <p class="contents-text">
+            工学部電子情報・電気電子工学科の卒業研究は、およそ40の研究グループに分かれ、メディアコンテンツ、ネットワーク、デバイス、システム、エネルギーや制御
+            に根ざした幅広い研究に取り組んでいます。この企画では、平成28年度の卒業論文で優秀表彰された学生による発表会を行います。電気系学科の最先端を行く卒業研究を除いてみませんか？
+        </p>
+    </div>
+    <div class="contents-box">
+        <img class="contents-img" src="./images/l-OB.png" alt="ワークショップ">
+        <h3>OB講演会</h3>
+        <p class="contents-text">
+            昨年卒業した学科のOBで現在はGoogleにてChromeの開発を行っている島津真人さんから、進路に迷っている高校生や進振り前の大学生に向けて講演会をしてもらいます。
+            これまで学んだことが現在の仕事にどのようにつながっているのか、機械学習・AI、IOTといった最近話題の技術に触れつつ紹介していただきます。
+        </p>
+    </div>
+</section>
+
+<footer class="footer">
+    <p class="copyright">Copyright &copy; EEIC 五月祭展示<br class="mobile">「近未来体験2017」All rights reserved.</p>
+</footer>
+</body>
+</html>

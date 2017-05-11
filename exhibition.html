@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>近未来体験2017</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/contents.css">
+
+    <script type="text/javascript" src="./jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        var flag = 2;// 1は閉じている状態
+        var mql = window.matchMedia('screen and (max-width: 800px)');
+        function close() {
+            $('ul.global-nav-list').slideUp(300);
+        }
+        function toggle() {
+            $('ul.global-nav-list').slideToggle(300);
+        }
+        function open() {
+            $('nav.CP-nav').slideDown(300);
+        }
+        function close2() {
+            if (mql.matches) {
+                $('li.at').addClass('slide-up').removeClass('slide-down');
+                $('ul.CP-nav-list').removeClass('through');
+                $('nav.CP-nav').css('z-index', 1);
+                flag = 1;
+            }else {
+                $('nav.CP-nav').slideUp(300);
+            }
+        }
+        function toggle2() {
+            if(flag === 1){$('li.at').addClass('slide-down').removeClass('slide-up'); $('ul.CP-nav-list').addClass('through');$('nav.CP-nav').css('z-index',3); flag = 2;}
+            else{$('ul.CP-nav-list').removeClass('through'); $('li.at').addClass('slide-up').removeClass('slide-down');$('nav.CP-nav').css('z-index',1);  flag = 1;}
+        }
+
+        $(function(){
+            $('a[href^="#"]').click(function(){
+                var speed = 300;
+                var href= $(this).attr("href");
+                var target = $(href === "#" || href === "" ? 'html' : href);
+                var position = target.offset().top;
+                $("html, body").animate({scrollTop:position}, speed, "swing");
+                return false;
+            });
+        });
+
+        function checkBreakPoint(mql) {
+            windowHeight = $(window).height();
+            if (mql.matches) {
+                // スマホ向け
+                $(function () {
+                    $('ul.global-nav-list').css('display',"none");
+                    $('nav.CP-nav').css('display',"block").css('z-index', 1);
+                    $('nav.global-nav').css('width',windowWidth).css('height',"");
+
+                    $('li.at').addClass('slide-up').removeClass('slide-down');
+                    $('ul.CP-nav-list').removeClass('through');
+                    flag = 1;
+                });
+
+                $(function(){
+                    $('li.CP-wrap').unbind('mouseenter',open);
+                });
+
+                $(function(){
+                    $('li.no-wrap').unbind('mouseenter',close2);
+                });
+
+                $(function(){
+                    $('header').unbind('mouseleave',close2);
+                });
+
+                $(function(){
+                    $('div.menu-trigger').click(toggle).click(close2);
+                });
+
+                $(function () {
+                    $('a.nav').click(close).click(close2);
+                });
+                $(function () {
+                    $('a.header-link').click(close).click(close2);
+                });
+                $(function () {
+                    $('div.tri').click(toggle2);
+                });
+            } else {
+                // PC向け
+
+                $(function () {
+                    $('nav.global-nav').css('width',"403px").css('height',"55px");
+                    $('nav.CP-nav').css('display',"none");
+                    $('ul.global-nav-list').css('display',"inline-flex");
+                });
+
+                $(function(){
+                    $('div.menu-trigger').unbind('click',toggle).unbind('click',close2);
+                });
+
+                $(function(){
+                    $('a.nav').unbind('click',close).unbind('click',close2);
+                });
+
+                $(function(){
+                    $('a.header-link').unbind('click',close).unbind('click',close2);
+                });
+                $(function () {
+                    $('div.tri').unbind('click',toggle2);
+                });
+
+                $(function () {
+                    $('li.CP-wrap').mouseenter(open);
+                });
+                $(function () {
+                    $('li.no-wrap').mouseenter(close2);
+                });
+                $(function () {
+                    $('header').mouseleave(close2);
+                });
+
+            }
+        }
+
+        // ブレイクポイントの瞬間に発火
+        mql.addListener(checkBreakPoint);
+
+        // 読み込み時に動作させる
+        checkBreakPoint(mql);
+
+    </script>
+
+
+</head>
+<body>
+<header class="header">
+    <a href="index.html#top" class="header-link">
+        <img class="header_img" src="./images/black_bulb.png" alt="eeic">
+        <div class="top-text">
+            <p class="up">EEIC 五月祭展示</p>
+            <p class="down">近未来体験2017</p>
+        </div>
+    </a>
+
+    <div class="menu-trigger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="global-nav">
+        <ul class="global-nav-list">
+            <li class="nav-item no-wrap"><a href="index.html#about" class="nav">ABOUT</a></li>
+            <li class="nav-item CP-wrap C-L"><div class="space1"></div><a href="index.html#contents" class="nav">CONTENTS</a><div class="space2"><div class="tri"></div></div></li>
+            <li class="nav-item no-wrap at"><a href="index.html#access" class="nav">ACCESS</a></li>
+            <li class="nav-item no-wrap"><a href="index.html#links" class="nav">LINKS</a></li>
+        </ul>
+    </nav>
+    <nav class="CP-nav">
+        <ul class="CP-nav-list">
+            <li class="CP-item now"><a href="exhibition.html">EXHIBITION</a></li>
+            <li class="CP-item"><a href="workshop.html">WORKSHOP</a></li>
+            <li class="CP-item"><a href="lecture.html">LECTURE</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="under-header"></section>
+<section class="top">
+    <h2 class="title">展示</h2>
+    <p class="subtitle">EXHIBITION</p>
+</section>
+
+<section class="contents-wrapper">
+    <div class="contents-box">
+        <img class="contents-img" src="./images/exhibition.png" alt="展示">
+        <h3>学生制作物展示</h3>
+        <p class="contents-text">
+                学生制作物展示では、電子情報・電気電子工学科に所属する学部3年生の制作物を展示しています。「ビックリドッキリメカ」で知られる電子情報機器学の授業で
+                作られたオリジナリティあふれる作品や、学生実験で作られた画像処理・情報可視化などのテーマに沿った作品をご覧いただけます。
+                初めて電子工作をする学生もいる中で、たくさんの技術を学び、いろいろなアイディアを出し合って作られた作品を見ることで、
+                日々の授業の成果が創造的な活動に課されていることを実感できます。楽しい展示がたくさんあるので是非お越しください！
+        </p>
+        <div class="CP-contents-wrapper">
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-s-checker.png" alt="image">
+                <p class="CP-text">室内環境チェッカー</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-s-Peegar.png" alt="image">
+                <p class="CP-text">Peegar</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-s-USB.png" alt="image">
+                <p class="CP-text">USBフラッシュロック</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-s-IC.png" alt="image">
+                <p class="CP-text">ICカード残額デジアナ表示器</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-s-Sound.png" alt="image">
+                <p class="CP-text">SoundGPS</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-s-syoji.png" alt="image">
+                <p class="CP-text">ショージニ・メアリー</p>
+            </div>
+        </div>
+    </div>
+    <div class="contents-box">
+        <img class="contents-img" src="./images/workshop.png" alt="ワークショップ">
+        <h3>研究室展示</h3>
+        <p class="contents-text">
+            研究室展示では、未来の電気自動車や美しいプラズマ現象、迫力満点の放電現象を生で見たり、リニアモーターカー試乗、
+            自分で書くことのできるゲームAIなど、実際に体験しながら電気系・情報系の技術がどのように用いられているのか学ぶことができます。
+        </p>
+        <div class="CP-contents-wrapper">
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-radicon.png" alt="image">
+                <p class="CP-text">筋電図でラジコンを動かそう</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-car.png" alt="image">
+                <p class="CP-text">リニアモーターカー試乗</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-manga.png" alt="image">
+                <p class="CP-text">手書きスケッチでの漫画の画像検索アプリケーション</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-compute.png" alt="image">
+                <p class="CP-text">分散コンピューティング</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-app.png" alt="image">
+                <p class="CP-text">五月祭アプリ</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/we-l-bionics.png" alt="image">
+                <p class="CP-text">生体調和エレクトロニクス</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-power.png" alt="image">
+                <p class="CP-text">なんかすごいぞ！電気のチカラ！</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-gate.png" alt="image">
+                <p class="CP-text">ゲートアレイによる集積回路の設計・マイクロマシンへの応用</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-device.png" alt="image">
+                <p class="CP-text">光インターコネクションのための半導体デバイス</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-vehicle.png" alt="image">
+                <p class="CP-text">永久磁石を用いた磁気浮上乗り物模型</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-processing.png" alt="image">
+                <p class="CP-text">地の情報処理</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-plasma.png" alt="image">
+                <p class="CP-text">見るプラズマ</p>
+            </div>
+            <div class="CP-content">
+                <img class="CP-img" src="./images/e-l-thunder.png" alt="image">
+                <p class="CP-text">雷実験</p>
+            </div>
+        </div>
+    </div>
+    <div class="contents-box">
+        <img class="contents-img" src="./images/lecture.png" alt="講演">
+        <h3>VR企画</h3>
+        <p class="contents-text">
+            VR企画では、ゴーグル型のデバイスを使用したVR(バーチャル・リアリティ)体験ができます。
+            子供から大人まで楽しめるよう、3種類の「新体験」を用意しました。次世代のテクノロジーに触れて、仮想ではない”本物”の近未来を感じてください！
+        </p>
+    </div>
+</section>
+<!--<section class="CP-link">-->
+    <!--<a class="CP-button1" href="workshop.html">ワークショップ</a>-->
+    <!--<a class="CP-button2" href="lecture.html">講演</a>-->
+<!--</section>-->
+
+<footer class="footer">
+    <p class="copyright">Copyright &copy; EEIC 五月祭展示<br class="mobile">「近未来体験2017」All rights reserved.</p>
+</footer>
+</body>
+</html>
