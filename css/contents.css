@@ -10,11 +10,6 @@
     }
 
 }
-@media (max-width: 800px) {
-    .global-nav .no-link{
-        /*display: none;*/
-    }
-}
 
 /*##############################*/
 /*top*/
@@ -145,8 +140,6 @@
     bottom: 0;
     z-index: 1;
 
-
-    /*height: 30px;*/
     width: 100vw;
 }
 
