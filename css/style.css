@@ -342,11 +342,13 @@ h1{
 
     -webkit-flex-direction: row; /* Safari */
     flex-direction:         row;
-    flex-wrap: nowrap;
+    /*flex-wrap: nowrap;*/
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 .contents-box{
     width: 27%;
+    min-width: 300px;
 
     display: -webkit-flex;
     display: flex;
@@ -356,11 +358,13 @@ h1{
     align-items: center;
 }
 .contents-img{
-    width: 75%;
+    width: 250px;
 }
 
 .contents-text{
     text-align: justify;
+
+    width: 95%;
 
     flex-grow: 2;
 }
@@ -385,8 +389,9 @@ h3{
 }
 
 .contents-box a:hover {
-    background-color: #eeeeee;
     transition: .3s;
+    background-color: black;
+    color: white;
 }
 
 
@@ -750,7 +755,7 @@ h4{
         margin-bottom: 0;
     }
     .contents-img{
-        width: 75%;
+        width: 250px;
     }
 
     .contents-text{
