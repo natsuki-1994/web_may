@@ -141,7 +141,7 @@ body p{
 
 
 .CP-nav{
-    position: fixed;
+    position: absolute;
     top: 75px;
     right: 255px;
     width: 125px;
@@ -337,12 +337,10 @@ h1{
     display: -webkit-flex;
     display: flex;
     width: 100%;
-    margin-top: 40px;
     margin-bottom: 30px;
 
     -webkit-flex-direction: row; /* Safari */
     flex-direction:         row;
-    /*flex-wrap: nowrap;*/
     flex-wrap: wrap;
     justify-content: space-around;
 }
@@ -356,6 +354,8 @@ h1{
     flex-direction:         column;
 
     align-items: center;
+
+    margin-top: 40px;
 }
 .contents-img{
     width: 250px;
@@ -367,6 +367,8 @@ h1{
     width: 95%;
 
     flex-grow: 2;
+
+    margin-bottom: 20px;
 }
 h3{
     font-size: 2.2rem;
