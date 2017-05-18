@@ -141,9 +141,8 @@ body p{
 
 
 .CP-nav{
-    position: fixed;
+    position: absolute;
     top: 75px;
-    right: 255px;
     width: 125px;
 background-color: rgba(255,255,255,0.8);
     justify-content: center;
@@ -337,16 +336,16 @@ h1{
     display: -webkit-flex;
     display: flex;
     width: 100%;
-    margin-top: 40px;
     margin-bottom: 30px;
 
     -webkit-flex-direction: row; /* Safari */
     flex-direction:         row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 .contents-box{
     width: 27%;
+    min-width: 300px;
 
     display: -webkit-flex;
     display: flex;
@@ -354,15 +353,21 @@ h1{
     flex-direction:         column;
 
     align-items: center;
+
+    margin-top: 40px;
 }
 .contents-img{
-    width: 75%;
+    width: 250px;
 }
 
 .contents-text{
     text-align: justify;
 
+    width: 95%;
+
     flex-grow: 2;
+
+    margin-bottom: 20px;
 }
 h3{
     font-size: 2.2rem;
@@ -385,8 +390,9 @@ h3{
 }
 
 .contents-box a:hover {
-    background-color: #eeeeee;
     transition: .3s;
+    background-color: black;
+    color: white;
 }
 
 
@@ -750,7 +756,7 @@ h4{
         margin-bottom: 0;
     }
     .contents-img{
-        width: 75%;
+        width: 250px;
     }
 
     .contents-text{

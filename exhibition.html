@@ -122,6 +122,12 @@
                     $('header').mouseleave(close2);
                 });
 
+                $(window).on('load resize', function(){
+                    $(function () {
+                        var off = $('#CP-start').offset();
+                        $('nav.CP-nav').css('left',off.left);
+                    });
+                });
             }
         }
 
@@ -153,12 +159,12 @@
     <nav class="global-nav">
         <ul class="global-nav-list">
             <li class="nav-item no-wrap"><a href="index.html#about" class="nav">ABOUT</a></li>
-            <li class="nav-item CP-wrap C-L"><div class="space1"></div><a href="index.html#contents" class="nav">CONTENTS</a><div class="space2"><div class="tri"></div></div></li>
+            <li class="nav-item CP-wrap C-L" id="CP-start"><div class="space1"></div><a href="index.html#contents" class="nav">CONTENTS</a><div class="space2"><div class="tri"></div></div></li>
             <li class="nav-item no-wrap at"><a href="index.html#access" class="nav">ACCESS</a></li>
             <li class="nav-item no-wrap"><a href="index.html#links" class="nav">LINKS</a></li>
         </ul>
     </nav>
-    <nav class="CP-nav">
+    <nav class="CP-nav" style="display: none;">
         <ul class="CP-nav-list">
             <li class="CP-item now"><a href="exhibition.html">EXHIBITION</a></li>
             <li class="CP-item"><a href="workshop.html">WORKSHOP</a></li>
