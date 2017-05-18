@@ -631,6 +631,8 @@ h4{
         overflow: hidden;
         background-color: rgba(0,0,0,0);
         box-shadow: none;
+
+        transition: .23s;
     }
 
     .CP-nav-list{
