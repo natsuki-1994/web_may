@@ -721,7 +721,7 @@ h4{
     /*##############################*/
 
     .factor {
-        padding: 80px 50px 50px 50px;
+        padding: 80px 30px 50px 30px;
         margin-top: -50px;
     }
 
@@ -752,6 +752,8 @@ h4{
     }
     .contents-box{
         width: 100%;
+        min-width: auto;
+
         margin-bottom: 80px;
     }
     .contents-box:last-of-type {
