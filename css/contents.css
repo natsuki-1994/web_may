@@ -135,3 +135,9 @@
         width: 49%;
     }
 }
+
+.link-button{
+    width: 178px;
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
